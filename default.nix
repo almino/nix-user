@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   environment.shellAliases = {
@@ -9,6 +9,15 @@
   imports = [
     ./fish.nix
     ./nfs.nix
-    ./user.nix
   ];
+
+  users.users.almino = {
+    description = "Almino Melo";
+    extraGroups = [ "networkmanager" "wheel" ];
+    isNormalUser = true;
+    # Os aplicativos abaixo estão disponíveis
+    # apenas para este usuário
+    packages = with pkgs; [ exa fish gh ];
+    shell = pkgs.fish;
+  };
 }

@@ -12,7 +12,6 @@
       restart = "sudo systemctl kexec";
     in
     {
-      artisan = "php artisan";
       full-switch = "${rebuild} switch ${nobuild}";
       nboot = "${rebuild} boot; and ${gc}";
       nreboot = "${rebuild} boot; and ${gc}; and ${restart}";
