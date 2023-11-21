@@ -13,6 +13,7 @@
     in
     {
       full-switch = "${rebuild} switch ${nobuild}";
+      gc = gc;
       nboot = "${rebuild} boot; and ${gc}";
       nreboot = "${rebuild} boot; and ${gc}; and ${restart}";
       nswitch = "${rebuild} switch ${nobuild}";
