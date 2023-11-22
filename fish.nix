@@ -10,6 +10,7 @@
       pip = "sudo python3 -m pip";
       rebuild = "sudo nixos-rebuild";
       restart = "sudo systemctl kexec";
+      up = "--upgrade-all";
     in
     {
       full-switch = "${rebuild} switch ${noBuild}";
@@ -25,7 +26,7 @@
       restart = restart;
       rmf = "rm --force --recursive";
       rup = builtins.toString [
-        "${rebuild} boot ${noBuild};"
+        "${rebuild} boot ${noBuild} ${up};"
         "and ${gc};"
         "and ${restart}"
       ];
@@ -33,7 +34,7 @@
       targit = "tar --checkpoint=5 --create --xz --exclude-from=.gitignore --file";
       tarignore = "tar --checkpoint=5 --create --xz --exclude-from=.tarignore --file";
       tarxz = "tar --checkpoint=5 --create --xz --file";
-      up = "${rebuild} switch ${noBuild} --upgrade-all";
+      up = "${rebuild} switch ${noBuild} ${up}";
     };
 
   users.users.almino.packages = with pkgs; [
