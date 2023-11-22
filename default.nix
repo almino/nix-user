@@ -15,7 +15,6 @@
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
     packages = with pkgs; [ exa gh ];
-    shell = lib.mkDefault pkgs.fish;
-    useDefaultShell = lib.mkDefault false;
+    shell = lib.mkForce pkgs.fish;
   };
 }
