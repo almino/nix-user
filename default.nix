@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   environment.shellAliases = {
@@ -6,18 +6,16 @@
     now = "date +\"%Y-%m-%d--%H-%M-%S\"";
   };
 
-  imports = [
-    ./fish.nix
-    ./nfs.nix
-  ];
+  imports = [ ./fish.nix ./nfs.nix ];
 
   users.users.almino = {
     description = "Almino Melo";
     extraGroups = [ "networkmanager" "wheel" ];
-    isNormalUser = true;
+    isNormalUser = lib.mkDefault true;
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
-    packages = with pkgs; [ exa fish gh ];
-    shell = pkgs.fish;
+    packages = with pkgs; [ exa gh ];
+    shell = lib.mkDefault pkgs.fish;
+    useDefaultShell = lib.mkDefault false;
   };
 }
