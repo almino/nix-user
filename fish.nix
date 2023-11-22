@@ -6,18 +6,18 @@
   programs.fish.shellAbbrs =
     let
       gc = "sudo nix-collect-garbage";
-      nobuild = "--no-build-nix";
+      noBuild = "--no-build-nix";
       pip = "sudo python3 -m pip";
       rebuild = "sudo nixos-rebuild";
       restart = "sudo systemctl kexec";
     in
     {
-      full-switch = "${rebuild} switch ${nobuild}";
+      full-switch = "${rebuild} switch ${noBuild}";
       gc = gc;
       nboot = "${rebuild} boot; and ${gc}";
-      nreboot = "${rebuild} boot; and ${gc}; and ${restart}";
-      nswitch = "${rebuild} switch ${nobuild}";
-      ntest = "${rebuild} test ${nobuild}";
+      nreboot = "${rebuild} boot ${noBuild}; and ${gc}; and ${restart}";
+      nswitch = "${rebuild} switch ${noBuild}";
+      ntest = "${rebuild} test ${noBuild}";
       pcp = "rsync -ah --progress";
       pip = pip;
       pip3 = pip;
@@ -25,7 +25,7 @@
       restart = restart;
       rmf = "rm --force --recursive";
       rup = builtins.toString [
-        "${rebuild} boot ${nobuild};"
+        "${rebuild} boot ${noBuild};"
         "and ${gc};"
         "and ${restart}"
       ];
@@ -33,7 +33,7 @@
       targit = "tar --checkpoint=5 --create --xz --exclude-from=.gitignore --file";
       tarignore = "tar --checkpoint=5 --create --xz --exclude-from=.tarignore --file";
       tarxz = "tar --checkpoint=5 --create --xz --file";
-      up = "${rebuild} switch ${nobuild} --upgrade-all";
+      up = "${rebuild} switch ${noBuild} --upgrade-all";
     };
 
   users.users.almino.packages = with pkgs; [
