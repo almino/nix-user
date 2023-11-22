@@ -3,6 +3,16 @@
 {
   imports = [ ./default.nix ];
 
+  services.xserver.displayManager.gdm.settings = {
+    greeter = {
+      Exclude = builtins.concatStringsSep "," [
+        "almino"
+        "dti"
+      ];
+      IncludeAll = lib.mkDefault false;
+    };
+  };
+
   users.users.almino = {
     createHome = lib.mkDefault true;
     extraGroups = [ "networkmanager" "wheel" ];
