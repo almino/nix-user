@@ -2,7 +2,6 @@
 
 {
   environment.shellAliases = {
-    ls = "exa -lh";
     now = "date +\"%Y-%m-%d--%H-%M-%S\"";
   };
 
