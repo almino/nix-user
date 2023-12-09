@@ -1,17 +1,7 @@
 { lib, ... }:
 
 {
-  imports = [ ./default.nix ];
-
-  services.xserver.displayManager.gdm.settings = {
-    greeter = {
-      Exclude = builtins.concatStringsSep "," [
-        "almino"
-        "dti"
-      ];
-      IncludeAll = lib.mkDefault false;
-    };
-  };
+  imports = [ ./base.nix ./home-manager.nix ];
 
   users.users.almino = {
     createHome = lib.mkDefault true;
