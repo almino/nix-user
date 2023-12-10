@@ -3,15 +3,12 @@
 let defaultHomeManager = import ../fn/home-manager.nix
   { inherit config; }; in
 
-{
-  imports = [ home-manager/nixos> ];
-  
-  home-manager.users.almino = defaultHomeManager "almino" {
-    imports = [
-      ../apps/git.nix
-      ../apps/telegram.981.nix
-      ./direnv.nix
-    ];
+defaultHomeManager "almino" {
+  imports = [
+    ../apps/git.nix
+    ../apps/telegram.981.nix
+    ../apps/direnv.nix
+  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -37,6 +34,11 @@ let defaultHomeManager = import ../fn/home-manager.nix
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    # fish-vars = {
+    #   source = ../dotfiles/fish-vars;
+    #   target = ".config/fish/fish_variables";
+    # };
+
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -47,6 +49,11 @@ let defaultHomeManager = import ../fn/home-manager.nix
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    # starship = {
+    #   source = ../dotfiles/starship.toml;
+    #   target = ".config/starship.toml";
+    # };
 
     # telegramStartup = {
     #   source = ../autostart/org.telegram.desktop.desktop;
@@ -68,17 +75,10 @@ let defaultHomeManager = import ../fn/home-manager.nix
     # EDITOR = "emacs";
   };
 
-  home.activation = {
-    gitDefaultBranch = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      $DRY_RUN_CMD ${pkgs.git}/bin/git config --global init.defaultBranch main
-    '';
-  };
-
-  programs.firefox.enable = true;
-  programs.firefox.profiles.personal =
-    import ../apps/firefox/personal.nix
-      { inherit lib pkgs; };
+  # programs.firefox.enable = true;
+  # programs.firefox.profiles.personal =
+  #   import ../apps/firefox/personal.nix
+  #     { inherit lib pkgs; };
 
   programs.gh = import ../apps/gh.nix;
-};
 }

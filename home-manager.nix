@@ -5,9 +5,9 @@
   
   home-manager.users.almino = { config, lib, pkgs, ... }: {
     imports = [
+      ./hm/version.nix
       ./pkgs.config.nix
-      ./hm/base.hm.nix
-      ./hm/direnv.nix
+      ./apps/direnv.nix
       ./apps/git.nix
       ./apps/telegram.981.nix
     ];
@@ -66,18 +66,5 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
-  home.activation = {
-    gitDefaultBranch = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      $DRY_RUN_CMD ${pkgs.git}/bin/git config --global init.defaultBranch main
-    '';
-  };
-
-  programs.firefox.enable = true;
-  # programs.firefox.profiles.personal =
-  #   import ./apps/firefox/personal.nix
-  #     { inherit lib pkgs; };
-
-  programs.gh = import ./apps/gh.nix;
 };
 }
