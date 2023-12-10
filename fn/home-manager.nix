@@ -5,7 +5,7 @@ extra:
 extra // {
   imports = [
     ../pkgs.config.nix
-    ./flatpak.hm.nix
+    ../hm/flatpak.hm.nix
     ../hm/version.nix
     # ../base/home-manager.nix
   ] ++ extra.imports;
