@@ -4,11 +4,7 @@ let defaultHomeManager = import ../fn/home-manager.nix
   { inherit config; }; in
 
 defaultHomeManager "almino" {
-  imports = [
-    ../apps/git.nix
-    ../apps/telegram.981.nix
-    ../apps/direnv.nix
-  ];
+  imports = [  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

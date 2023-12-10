@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   # Allow unfree packages
@@ -12,6 +12,10 @@
     packageOverrides = pkgs: {
       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;
+      };
+      unstable = import <nixos-unstable> {
+        # pass the nixpkgs config to the unstable alias # to ensure `allowUnfree = true;` is propagated:
+        config = config.nixpkgs.config;
       };
     };
   };

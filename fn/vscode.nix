@@ -2,7 +2,7 @@
 
 let
   userPath =
-    "/base/vscode/${config.home.username}.settings.nix";
+    "/apps/vscode/${config.home.username}.settings.nix";
 in
 let
   user = (if builtins.pathExists (../. + userPath) then
@@ -27,9 +27,9 @@ in
       (import ./vscx.nix { inherit config pkgs; } {})
     else extensions;
   keybindings = keybindings
-    ++ (import ../base/vscode/keybindings.nix);
+    ++ (import ../apps/vscode/keybindings.nix);
   package = lib.mkDefault package;
   userSettings =
-    (import ../base/vscode/settings.nix { inherit lib; })
+    (import ../apps/vscode/settings.nix { inherit lib; })
     // user // settings;
 }

@@ -1,17 +1,22 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
+
+let
+  vsCode = import ../fn/vscode.nix
+    { inherit config lib pkgs; };
+in
 
 {
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "23.11";
-  
   imports = [
-    ./flatpak.nix
+    ./flatpak.hm.nix
   ];
+
+  programs.vscode = vsCode {
+    # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.package
+    # package = pkgs.unstable.vscode;
+    package = pkgs.vscodium;
+    settings = {
+      "window.zoomLevel" = 1;
+      "workbench.colorTheme" = "Solarized Light";
+    };
+  };
 }

@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ./me.nix ../base/gnome-dconf.nix ];
+  imports = [ ./me.nix ./gnome-dconf.nix ];
 
   dconf.settings = {
     "org/gnome/shell" = {

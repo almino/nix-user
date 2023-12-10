@@ -6,6 +6,7 @@
   home-manager.users.almino = { config, lib, pkgs, ... }: {
     imports = [
       ./hm/version.nix
+      ./hm/base.hm.nix
       ./pkgs.config.nix
       ./apps/direnv.nix
       ./apps/git.nix

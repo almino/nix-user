@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 
 let
-  baseP = import ../base/vscode/extensions.nix
+  baseP = import ../apps/vscode/extensions.nix
     { inherit pkgs; };
 in
-let baseM = import ../base/vscode/marketplace.nix; in
+let baseM = import ../apps/vscode/marketplace.nix; in
 let
   userPath =
-    "/base/vscode/${config.home.username}";
+    "/apps/vscode/${config.home.username}";
 in
 let
   user = (if builtins.pathExists (../. + "${userPath}.nix") then

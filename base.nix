@@ -6,9 +6,9 @@
     now = "date +\"%Y-%m-%d--%H-%M-%S\"";
   };
 
-  imports = [ ./fish.nix ];
-  
-  users.users.almino.packages = with pkgs; [ 
+  imports = [ ./fish.nix ./typography.nix ];
+
+  users.users.almino.packages = with pkgs; [
     gh
     gnome.gnome-terminal
     gnome.gnome-tweaks
