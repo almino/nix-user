@@ -1,10 +1,19 @@
 { config, lib, pkgs, ... }:
 
-let defaultHomeManager = import ../fn/home-manager.nix
-  { inherit config; }; in
+let
+  defaultHomeManager = import ../fn/home-manager.nix
+    { inherit config; };
+in
 
 defaultHomeManager "almino" {
-  imports = [  ];
+    imports = [
+      ./version.nix
+      ./base.hm.nix
+      ../pkgs.config.nix
+      ../apps/direnv.nix
+      ../apps/git.nix
+      ../apps/telegram.981.nix
+    ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

@@ -8,7 +8,7 @@ extra // {
     ../hm/flatpak.hm.nix
     ../hm/version.nix
     # ../base/home-manager.nix
-  ] ++ extra.imports;
+  ] ++ (extra.imports or []);
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
