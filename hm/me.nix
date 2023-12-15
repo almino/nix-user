@@ -2,18 +2,15 @@
 
 let
   defaultHomeManager = import ../fn/home-manager.nix
-    { inherit config; };
+    { inherit config lib pkgs; };
 in
 
 defaultHomeManager "almino" {
-    imports = [
-      ../apps/direnv.nix
-      ../apps/git.nix
-      ../apps/telegram.981.nix
-      ../pkgs.config.nix
-      ./base.hm.nix
-      ./version.nix
-    ];
+  imports = [
+    ../apps/direnv.nix
+    ../apps/git.nix
+    ../apps/telegram.981.nix
+  ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -80,7 +77,6 @@ defaultHomeManager "almino" {
     # EDITOR = "emacs";
   };
 
-  programs.firefox.enable = true;
   programs.firefox.profiles = {
     personal = (import ../apps/firefox/personal.nix
       { inherit lib pkgs; }) // {
