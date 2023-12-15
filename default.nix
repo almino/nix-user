@@ -5,10 +5,10 @@
     now = "date +\"%Y-%m-%d--%H-%M-%S\"";
   };
 
-  imports = [ ./fish.nix ./nfs.nix ];
+  imports = [ ./base.nix ./home-manager.nix ];
 
   users.users.almino = {
-    description = "Almino Melo";
+    description = "Almino";
     extraGroups = [ "networkmanager" "wheel" ];
     isNormalUser = lib.mkDefault true;
     # Os aplicativos abaixo estão disponíveis
