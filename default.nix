@@ -1,10 +1,6 @@
 { lib, pkgs, ... }:
 
 {
-  environment.shellAliases = {
-    now = "date +\"%Y-%m-%d--%H-%M-%S\"";
-  };
-
   imports = [ ./base.nix ./home-manager.nix ];
 
   users.users.almino = {
