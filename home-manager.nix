@@ -7,8 +7,11 @@ in
 {
   imports = [ <home-manager/nixos> ];
 
-  home-manager.users.almino = import ./hm/me.nix;
-  # home-manager.users.visitante =
-  #   { config, lib, pkgs, ... }:
-  #   defaultHomeManager "visitante" { };
+  home-manager.users = {
+    almino = lib.mkDefault (import ./hm/me.nix);
+
+    # visitante =
+    #   { config, lib, pkgs, ... }:
+    #   defaultHomeManager "visitante" { };
+  };
 }

@@ -16,19 +16,19 @@ in
   extensions ? [],
   keybindings ? [],
   # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.package
-  package ? pkgs.unstable.vscode,
+  package ? pkgs.vscodium,
   settings ? {},
 }:
 {
-  enable = lib.mkDefault enable;
-  enableUpdateCheck = lib.mkDefault enableUpdateCheck;
+  enable = enable;
+  enableUpdateCheck = enableUpdateCheck;
   extensions =
     if extensions == [] then
       (import ./vscx.nix { inherit config pkgs; } {})
     else extensions;
   keybindings = keybindings
     ++ (import ../apps/vscode/keybindings.nix);
-  package = lib.mkDefault package;
+  package = package;
   userSettings =
     (import ../apps/vscode/settings.nix { inherit lib; })
     // user // settings;
