@@ -27,11 +27,11 @@
       reboot = lib.mkDefault restart;
       restart = lib.mkDefault restart;
       rmf = lib.mkDefault "rm --force --recursive";
-      rup = lib.mkDefault builtins.toString [
+      rup = lib.mkDefault (builtins.toString [
         "${rebuild} boot ${noBuild} ${up};"
         "and ${gc};"
         "and ${restart}"
-      ];
+      ]);
       srmf = lib.mkDefault "sudo rm --interactive=once --recursive";
       stash = lib.mkDefault "git stash -u -m \"\"";
       targit = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.gitignore --file";
