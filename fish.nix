@@ -40,6 +40,7 @@
       up = lib.mkDefault "${rebuild} switch ${noBuild} ${up}";
     };
 
+  # Somente meu usuário
   users.users.almino.packages = with pkgs; [
     fish
     fishPlugins.colored-man-pages
