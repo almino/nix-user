@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   # https://nixos.wiki/wiki/Fish#Installation
@@ -10,31 +10,34 @@
       pip = "sudo python3 -m pip";
       rebuild = "sudo nixos-rebuild";
       restart = "sudo systemctl kexec";
+      tarxz = "tar --checkpoint=1500 --create --xz";
       up = "--upgrade-all";
     in
     {
-      full-switch = "${rebuild} switch ${noBuild}";
-      gc = gc;
-      nboot = "${rebuild} boot; and ${gc}";
-      nreboot = "${rebuild} boot ${noBuild}; and ${gc}; and ${restart}";
-      nswitch = "${rebuild} switch ${noBuild}";
-      ntest = "${rebuild} test ${noBuild}";
-      pcp = "rsync -ah --progress";
-      pip = pip;
-      pip3 = pip;
-      reboot = restart;
-      restart = restart;
-      rmf = "rm --force --recursive";
-      rup = builtins.toString [
+      backup-dir = lib.mkDefault "${tarxz} --file ../(now).(basename $PWD).tar.xz (/run/current-system/sw/bin/ls -A $PWD)";
+      full-switch = lib.mkDefault "${rebuild} switch ${noBuild}";
+      gc = lib.mkDefault gc;
+      nboot = lib.mkDefault "${rebuild} boot; and ${gc}";
+      nreboot = lib.mkDefault "${rebuild} boot ${noBuild}; and ${gc}; and ${restart}";
+      nswitch = lib.mkDefault "${rebuild} switch ${noBuild}";
+      ntest = lib.mkDefault "${rebuild} test ${noBuild}";
+      pcp = lib.mkDefault "rsync -ah --progress";
+      pip = lib.mkDefault pip;
+      pip3 = lib.mkDefault pip;
+      reboot = lib.mkDefault restart;
+      restart = lib.mkDefault restart;
+      rmf = lib.mkDefault "rm --force --recursive";
+      rup = lib.mkDefault builtins.toString [
         "${rebuild} boot ${noBuild} ${up};"
         "and ${gc};"
         "and ${restart}"
       ];
-      srmf = "sudo rm --interactive=once --recursive";
-      targit = "tar --checkpoint=5 --create --xz --exclude-from=.gitignore --file";
-      tarignore = "tar --checkpoint=5 --create --xz --exclude-from=.tarignore --file";
-      tarxz = "tar --checkpoint=5 --create --xz --file";
-      up = "${rebuild} switch ${noBuild} ${up}";
+      srmf = lib.mkDefault "sudo rm --interactive=once --recursive";
+      stash = lib.mkDefault "git stash -u -m \"\"";
+      targit = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.gitignore --file";
+      tarignore = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.tarignore --file";
+      tarxz = lib.mkDefault "tar --checkpoint=5 --create --xz --file";
+      up = lib.mkDefault "${rebuild} switch ${noBuild} ${up}";
     };
 
   users.users.almino.packages = with pkgs; [
