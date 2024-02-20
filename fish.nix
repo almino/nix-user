@@ -5,18 +5,24 @@
   programs.fish.enable = true;
   programs.fish.shellAbbrs =
     let
+      backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz (/run/current-system/sw/bin/ls -A $PWD)";
       gc = "sudo nix-collect-garbage";
+      hms = "home-manager switch --no-out-link -b (date +\"%Y%m%d-%H%M%S\")";
       noBuild = "--no-build-nix";
+      now = "date +\"%Y-%m-%d--%H-%M-%S\"";
       pip = "sudo python3 -m pip";
       rebuild = "sudo nixos-rebuild";
       restart = "sudo systemctl kexec";
+      screen-backup-dir = "screen sh -c \"${backup-dir}\"";
       tarxz = "tar --checkpoint=1500 --create --xz";
       up = "--upgrade-all";
     in
     {
-      backup-dir = lib.mkDefault "${tarxz} --file ../(now).(basename $PWD).tar.xz (/run/current-system/sw/bin/ls -A $PWD)";
+      backup-dir = lib.mkDefault backup-dir;
+      bd = lib.mkDefault backup-dir;
       full-switch = lib.mkDefault "${rebuild} switch ${noBuild}";
       gc = lib.mkDefault gc;
+      hms = lib.mkDefault hms;
       nboot = lib.mkDefault "${rebuild} boot; and ${gc}";
       nreboot = lib.mkDefault "${rebuild} boot ${noBuild}; and ${gc}; and ${restart}";
       nswitch = lib.mkDefault "${rebuild} switch ${noBuild}";
@@ -27,11 +33,14 @@
       reboot = lib.mkDefault restart;
       restart = lib.mkDefault restart;
       rmf = lib.mkDefault "rm --force --recursive";
+      rpull = "git pull --recurse-submodules";
       rup = lib.mkDefault (builtins.toString [
         "${rebuild} boot ${noBuild} ${up};"
         "and ${gc};"
         "and ${restart}"
       ]);
+      sbackup-dir = lib.mkDefault screen-backup-dir;
+      sbd = lib.mkDefault screen-backup-dir;
       srmf = lib.mkDefault "sudo rm --interactive=once --recursive";
       stash = lib.mkDefault "git stash -u -m \"\"";
       targit = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.gitignore --file";
