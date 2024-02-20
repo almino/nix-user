@@ -96,7 +96,7 @@
   "terminal.integrated.fontSize" = lib.mkDefault 12;
   # "window.autoDetectColorScheme" = true;
   "window.commandCenter" = true;
-  # "window.titleBarStyle" = "custom";
+  "window.titleBarStyle" = "custom";
   "window.zoomLevel" = lib.mkDefault 1.5;
   "workbench.colorTheme" = lib.mkDefault "Cobalt2 Theme Tweaked";
   # "workbench.colorTheme" = lib.mkDefault "Palenight (Mild Contrast)";

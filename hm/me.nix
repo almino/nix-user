@@ -10,6 +10,7 @@ defaultHomeManager "almino" {
     ../apps/direnv.nix
     ../apps/git.nix
     ../apps/telegram.981.nix
+    ../apps/zoxide.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
