@@ -47,6 +47,7 @@
       tarignore = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.tarignore --file";
       tarxz = lib.mkDefault "tar --checkpoint=5 --create --xz --file";
       up = lib.mkDefault "${rebuild} switch ${noBuild} ${up}";
+      upgit = "git pull --recurse-submodules --autostash; and git push --progress --recurse-submodules=on-demand";
     };
 
   # Somente meu usuário
