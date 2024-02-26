@@ -8,7 +8,7 @@
     nixpkgs-fmt
   ];
 
-  imports = [ ./fish.nix ./typography.nix ];
+  imports = [ ./apps/fish.nix ./typography.nix ];
 
   users.users.almino.packages = with pkgs; [
     gh
