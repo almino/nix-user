@@ -7,6 +7,9 @@
     let
       backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz (/run/current-system/sw/bin/ls -A $PWD)";
       gc = "sudo nix-collect-garbage";
+      gitPull = "git pull --recurse-submodules --autostash";
+      gitPush = "git push --progress --recurse-submodules=on-demand";
+      gitUp = "${gitPull}; and ${gitPush}";
       hms = "home-manager switch --no-out-link -b (date +\"%Y%m%d-%H%M%S\")";
       noBuild = "--no-build-nix";
       now = "date +\"%Y-%m-%d--%H-%M-%S\"";
@@ -22,6 +25,9 @@
       bd = lib.mkDefault backup-dir;
       full-switch = lib.mkDefault "${rebuild} switch ${noBuild}";
       gc = lib.mkDefault gc;
+      gitup = lib.mkDefault gitUp;
+      gpull = lib.mkDefault gitPull;
+      gpush = lib.mkDefault gitPush;
       hms = lib.mkDefault hms;
       nboot = lib.mkDefault "${rebuild} boot; and ${gc}";
       nreboot = lib.mkDefault "${rebuild} boot ${noBuild}; and ${gc}; and ${restart}";
@@ -47,7 +53,7 @@
       tarignore = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.tarignore --file";
       tarxz = lib.mkDefault "tar --checkpoint=5 --create --xz --file";
       up = lib.mkDefault "${rebuild} switch ${noBuild} ${up}";
-      upgit = "git pull --recurse-submodules --autostash; and git push --progress --recurse-submodules=on-demand";
+      upgit = lib.mkDefault gitUp;
     };
 
   # Somente meu usuário
