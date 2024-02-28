@@ -58,6 +58,7 @@
 
   # Somente meu usuário
   users.users.almino.packages = with pkgs; [
+    fd # An alternative to find (Ctrl + Alt + F)
     fish
     fishPlugins.colored-man-pages
     fishPlugins.fzf-fish # Ctrl + Alt + {P,S,L,F}
