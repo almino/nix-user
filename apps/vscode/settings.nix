@@ -60,7 +60,10 @@
   "editor.tabCompletion" = "on";
   "editor.tabSize" = lib.mkDefault 2;
   "files.associations".".tarignore" = "ignore";
-  "files.exclude"."**/.direnv" = true;
+  "files.exclude" = {
+    "**/.direnv" = true;
+    "**/.Trash-*" = true;
+  };
   "files.trimTrailingWhitespace" = true;
   "git.autofetch" = false;
   "git.closeDiffOnOperation" = true;
