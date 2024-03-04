@@ -9,9 +9,9 @@ in
 
   programs.vscode = vsCode {
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.package
-    # package = pkgs.unstable.vscode;
+    package = pkgs.unstable.vscode;
     settings = {
-      "window.zoomLevel" = lib.mkDefault 1;
+      "window.zoomLevel" = 1;
       "workbench.colorTheme" = "Solarized Light";
     };
   };

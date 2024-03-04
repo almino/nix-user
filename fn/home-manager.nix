@@ -28,8 +28,9 @@ extra // {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.vscode = lib.mkDefault (vsCode {
+  programs.vscode = vsCode {
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.package
-    # package = pkgs.unstable.vscode;
-  });
+    # Necessário para não mostrar o erro de conflito
+    package = lib.mkDefault pkgs.unstable.vscode;
+  };
 }
