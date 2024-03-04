@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ./base.nix ./home-manager.nix ];
+  imports = [ ./base.nix ];
 
   users.users.almino = {
     description = "Almino";
