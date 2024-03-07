@@ -56,6 +56,8 @@
       upgit = lib.mkDefault gitUp;
     };
 
+  programs.starship.enable = true;
+
   # Somente meu usuário
   users.users.almino.packages = with pkgs; [
     fd # An alternative to find (Ctrl + Alt + F)
