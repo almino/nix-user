@@ -1,15 +1,13 @@
 { lib, pkgs, ... }:
 
-let vars = import ../../vars.nix; in
 {
-  imports = [ ./apps/fish.nix ];
+  imports = [ ./apps/fish.nix ./www-data.nix ];
 
   users.users.almino = {
     description = "Almino";
     extraGroups = [
       "networkmanager"
       "wheel"
-      vars.webGroup
     ];
     isNormalUser = lib.mkDefault true;
     # Os aplicativos abaixo estão disponíveis
