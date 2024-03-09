@@ -9,7 +9,7 @@
     isNormalUser = lib.mkDefault true;
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
-    packages = with pkgs; [ eza gh nil ];
+    packages = with pkgs; [ eza gh ];
     shell = lib.mkForce pkgs.fish;
   };
 }
