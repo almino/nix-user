@@ -1,14 +1,9 @@
 { pkgs, ... }:
 
 {
-  programs.virt-manager.enable = true;
+  networking.firewall.interfaces.virbr0.allowedTCPPorts = [ 3306 ];
 
-  # programs.dconf.profiles.almino = {
-  #   "org/virt-manager/virt-manager/connections" = {
-  #     autoconnect = [ "qemu:///system" ];
-  #     uris = [ "qemu:///system" ];
-  #   };
-  # };
+  programs.virt-manager.enable = true;
 
   users.users.almino = {
     extraGroups = [ "libvirt" ];
