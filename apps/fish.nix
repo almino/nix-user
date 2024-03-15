@@ -29,6 +29,7 @@
       gpull = lib.mkDefault gitPull;
       gpush = lib.mkDefault gitPush;
       hms = lib.mkDefault hms;
+      ip = lib.mkDefault "ip --color a";
       nboot = lib.mkDefault "${rebuild} boot; and ${gc}";
       nreboot = lib.mkDefault "${rebuild} boot ${noBuild}; and ${gc}; and ${restart}";
       nswitch = lib.mkDefault "${rebuild} switch ${noBuild}";
