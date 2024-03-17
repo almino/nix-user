@@ -23,6 +23,7 @@
     {
       backup-dir = lib.mkDefault backup-dir;
       bd = lib.mkDefault backup-dir;
+      diren = lib.mkDefault "direnv";
       full-switch = lib.mkDefault "${rebuild} switch ${noBuild}";
       gc = lib.mkDefault gc;
       gitup = lib.mkDefault gitUp;
