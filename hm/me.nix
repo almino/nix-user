@@ -7,10 +7,10 @@ in
 
 defaultHomeManager "almino" {
   imports = [
-    ../apps/direnv.nix
-    ../apps/git.nix
-    ../apps/telegram.981.nix
-    ../apps/zoxide.nix
+    ../apps/direnv.hm.nix
+    ../apps/git.hm.nix
+    ../apps/telegram-981.hm.nix
+    ../apps/zoxide.hm.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
