@@ -3,6 +3,13 @@
 {
   imports = [ ./apps/fish.nix ./www-data.nix ];
 
+  services.mysql = {
+    ensureUsers = [{
+      name = "almino";
+      ensurePermissions."*.*" = "ALL PRIVILEGES";
+    }];
+  };
+
   users.users.almino = {
     description = "Almino";
     extraGroups = [
