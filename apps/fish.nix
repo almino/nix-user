@@ -49,6 +49,7 @@
       ]);
       sbackup-dir = lib.mkDefault screen-backup-dir;
       sbd = lib.mkDefault screen-backup-dir;
+      service = lib.mkDefault "sudo service";
       srmf = lib.mkDefault "sudo rm --interactive=once --recursive";
       stash = lib.mkDefault "git stash -u -m \"\"";
       targit = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.gitignore --file";
