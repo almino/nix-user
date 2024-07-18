@@ -18,6 +18,7 @@
       restart = "sudo systemctl kexec";
       screen-backup-dir = "screen sh -c \"${backup-dir}\"";
       tarxz = "tar --checkpoint=1500 --create --xz";
+      tmux = "tmux";
       up = "--upgrade-all";
     in
     {
@@ -55,6 +56,8 @@
       targit = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.gitignore --file";
       tarignore = lib.mkDefault "tar --checkpoint=5 --create --xz --exclude-from=.tarignore --file";
       tarxz = lib.mkDefault "tar --checkpoint=5 --create --xz --file";
+      temux = tmux;
+      termux = tmux;
       up = lib.mkDefault "${rebuild} switch ${noBuild} ${up}";
       upgit = lib.mkDefault gitUp;
     };
