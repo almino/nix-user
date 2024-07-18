@@ -7,12 +7,12 @@ in
 {
   imports = [ ./me.nix ];
 
-  programs.vscode = vsCode {
+  programs.vscode = lib.mkForce (vsCode {
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.package
     package = pkgs.unstable.vscode;
     settings = {
       "window.zoomLevel" = 1;
       "workbench.colorTheme" = "Solarized Light";
     };
-  };
+  });
 }

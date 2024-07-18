@@ -30,6 +30,6 @@ in
     ++ (import ../apps/vscode/keybindings.nix);
   package = package;
   userSettings =
-    (import ../apps/vscode/settings.nix { inherit lib; })
+    (import ../apps/vscode/settings.nix { inherit lib pkgs; })
     // user // settings;
 }

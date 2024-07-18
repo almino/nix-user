@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   "[angular]"."editor.defaultFormatter" =
@@ -80,7 +80,7 @@
   "nix.enableLanguageServer" = true; # Enable LSP.
   "nix.serverPath" = "nil"; # The path to the LSP server executable.
   "nix.serverSettings".nil.formatting.command =
-    [ "nixpkgs-fmt" ]; # Uncomment these to tweak settings.
+    [ "nixpkgs-fmt" ];
   "prettier.printWidth" = 50;
   "redhat.telemetry.enabled" = true;
   "sql-formatter.uppercase" = true;
