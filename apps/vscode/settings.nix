@@ -31,6 +31,8 @@
     "esbenp.prettier-vscode";
   "[markdown]"."editor.defaultFormatter" =
     "esbenp.prettier-vscode";
+  "[nix]"."editor.defaultFormatter" =
+    "B4dM4n.nixpkgs-fmt";
   "[scss]"."editor.defaultFormatter" =
     "esbenp.prettier-vscode";
   "[typescript]"."editor.defaultFormatter" =

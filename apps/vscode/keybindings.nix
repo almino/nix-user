@@ -10,6 +10,7 @@
   # Essa aqui eu não faço a menor ideia do que fazia
   { "key" = "ctrl+shift+;"; "command" = "-breadcrumbs.focus"; "when" = "breadcrumbsPossible && breadcrumbsVisible"; }
   { "key" = "ctrl+shift+;"; "command" = "extension.toggleColon"; "when" = "editorTextFocus"; }
+  { "key" = "ctrl+shift+i"; "command" = "-emojisense.quickEmojitext"; "when" = "editorTextFocus"; }
   { "key" = "ctrl+shift+[BracketLeft]"; "command" = "-workbench.action.terminal.toggleTerminal"; "when" = "terminal.active"; }
   { "key" = "ctrl+shift+d"; "command" = "-workbench.view.debug"; "when" = "viewContainer.workbench.view.debug.enabled"; }
   { "key" = "ctrl+shift+d"; "command" = "lafe.duplicateCode"; "when" = "editorTextFocus"; }
