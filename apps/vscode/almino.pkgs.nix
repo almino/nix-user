@@ -2,5 +2,23 @@
 { pkgs, ... }:
 
 with pkgs.vscode-extensions; [
-  skyapps.fish-vscode
+  alefragnani.project-manager
+  batisteo.vscode-django
+  bmewburn.vscode-intelephense-client
+  bradlc.vscode-tailwindcss
+  christian-kohler.npm-intellisense
+  devsense.composer-php-vscode
+  devsense.phptools-vscode
+  firefox-devtools.vscode-firefox-debug
+  github.copilot
+  github.copilot-chat
+  ms-python.black-formatter
+  ms-python.debugpy
+  ms-python.python
+  ms-python.vscode-pylance
+  stephlin.vscode-tmux-keybinding
+  tailscale.vscode-tailscale
+  usernamehw.errorlens
+  vue.volar
+  xdebug.php-debug
 ]

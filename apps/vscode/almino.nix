@@ -9,20 +9,6 @@
       "6f367f6df419ab346cc09ea5816e5a05564dfeb02a62cee1c4b6d669826b0901";
   }
   {
-    name = "copilot";
-    publisher = "GitHub";
-    version = "1.114.427";
-    sha256 = "1mqkgw4ndz622n350kc19x7f9a3q1ffv0307adhr7jav4qcg825g";
-  }
-  {
-    # nix-prefetch-url 'https://pkief.gallery.vsassets.io/_apis/public/gallery/publisher/GitHub/extension/copilot-chat/latest/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage'
-    # GitHub.copilot-chat
-    name = "copilot-chat";
-    publisher = "GitHub";
-    version = "0.7.1";
-    sha256 = "sha256-GI5mRWu8YtJfT1uYpw27auIqUihj8/eh3go3HTJnvVM=";
-  }
-  {
     # https://pkief.gallery.vsassets.io/_apis/public/gallery/publisher/vsls-contrib/extension/gistfs/latest/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
     name = "gistfs";
     publisher = "vsls-contrib";
