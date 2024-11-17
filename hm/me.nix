@@ -79,7 +79,7 @@ defaultHomeManager "almino" {
   };
 
   programs.firefox.profiles = {
-    personal = (import ../apps/firefox/personal.nix
+    personal = (import ../../apps/firefox.nix
       { inherit lib pkgs; }) // {
       isDefault = true;
     };
