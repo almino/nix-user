@@ -12,5 +12,6 @@
 
   users.users.almino.packages = with pkgs; [
     gh
+    nextcloud-client
   ];
 }
