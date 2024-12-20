@@ -11,7 +11,7 @@
       gitPush = "git push --progress --recurse-submodules=on-demand";
       gitUp = "${gitPull}; and ${gitPush}";
       hms = "home-manager switch --no-out-link -b (date +\"%Y%m%d-%H%M%S\")";
-      noBuild = "--no-build-nix";
+      noBuild = "--no-build-output --no-build-nix";
       now = "date +\"%Y-%m-%d--%H-%M-%S\"";
       pip = "sudo python3 -m pip";
       rebuild = "sudo nixos-rebuild";
