@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # List packages installed in system profile. To search, run:
@@ -8,7 +8,11 @@
     nixpkgs-fmt
   ];
 
-  imports = [ ./apps/fish.nix ./typography.nix ];
+  imports = [
+    ./apps/fish.nix
+    ./apps/tmux.nix
+    ./typography.nix
+  ];
 
   users.users.almino.packages = with pkgs; [
     gh
