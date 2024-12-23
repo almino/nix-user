@@ -9,7 +9,7 @@
     isNormalUser = lib.mkDefault true;
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
-    packages = with pkgs; [ eza gh ];
+    packages = with pkgs; [ eza gh librewolf zotero ];
     shell = lib.mkForce pkgs.fish;
   };
 }
