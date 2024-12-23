@@ -2,8 +2,8 @@
 
 {
   users.users.almino.packages = with pkgs; [
-    gnome.gnome-terminal
-    gnome.gnome-tweaks
+    gnome-terminal
+    gnome-tweaks
     gnomeExtensions.advanced-alttab-window-switcher
     gnomeExtensions.media-controls
     gnomeExtensions.nextcloud-folder
