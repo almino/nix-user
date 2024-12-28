@@ -5,6 +5,19 @@ let
   inherit (config.xdg) dataHome;
 in
 # config.xdg.configFile."zotero/user.js".source
+
+# https://github.com/lwndhrst/nixos-config/blob/59e94d70cb1e6f1e3bc1877b954086adac911995/modules/zotero/default.nix#L6
+# home.packages = with pkgs; [
+#     (zotero.overrideAttrs (p: rec {
+#       # override zotero desktop file to use default light theme
+#       desktopItem = p.desktopItem.override (d: {
+#         exec = "env GTK_THEME=Default ${d.exec}";
+#       });
+
+#       # update install phase to use the new desktop file
+#       installPhase = builtins.replaceStrings [ "${p.desktopItem}" ] [ "${desktopItem}" ] p.installPhase;
+#     }))
+#   ];
 pkgs.writeTextFile ({
   name = "user.js";
   text = ''
