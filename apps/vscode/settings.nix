@@ -85,6 +85,8 @@
     [ "nixpkgs-fmt" ];
   "prettier.printWidth" = 50;
   "redhat.telemetry.enabled" = true;
+  "remote.SSH.remotePlatform".hp = "linux";
+  "remote.SSH.useLocalServer" = false;
   "sql-formatter.uppercase" = true;
   "terminal.integrated.fontFamily" = lib.mkDefault
     (builtins.concatStringsSep ", " [
