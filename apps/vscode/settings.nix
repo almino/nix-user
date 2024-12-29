@@ -64,6 +64,7 @@
   "files.associations".".tarignore" = "ignore";
   "files.exclude" = {
     "**/.direnv" = true;
+    "**/.history" = true;
     "**/.Trash-*" = true;
   };
   "files.trimTrailingWhitespace" = true;
