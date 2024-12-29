@@ -78,12 +78,5 @@ defaultHomeManager "almino" {
     # EDITOR = "emacs";
   };
 
-  programs.firefox.profiles = {
-    personal = (import ../../apps/firefox.nix
-      { inherit lib pkgs; }) // {
-      isDefault = true;
-    };
-  };
-
   programs.gh = import ../apps/gh.nix;
 }
