@@ -5,7 +5,7 @@ let
     { inherit config lib pkgs; };
 in
 {
-  imports = [ ./me.nix ];
+  imports = [ ./me.nix ../../hm/proxy.dconf.hm.nix ];
 
   programs.vscode = lib.mkForce (vsCode {
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.package
