@@ -165,23 +165,18 @@ with lib.hm.gvariant;
         # "space-bar@luchrioh"
         # "expandable-notifications@kaan.g.inam.org"
         # "Vitals@CoreCoding.com"
-        gnomeExtensions.advanced-alttab-window-switcher.extensionUuid
         gnomeExtensions.expandable-notifications.extensionUuid
         gnomeExtensions.nextcloud-folder.extensionUuid
         gnomeExtensions.pano.extensionUuid
-        gnomeExtensions.pop-shell.extensionUuid
-        gnomeExtensions.space-bar.extensionUuid
         gnomeExtensions.vitals.extensionUuid
         gnomeExtensions.wiggle.extensionUuid
         gnomeExtensions.wifi-qrcode.extensionUuid
         gnomeExtensions.vscode-search-provider.extensionUuid
-        gnomeExtensions.tailscale-qs.extensionUuid
       ];
       favorite-apps = lib.mkDefault [
         "firefox.desktop"
         "org.gnome.Terminal.desktop"
         "code.desktop"
-        "zotero.desktop"
       ];
       last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "44.2";
@@ -210,14 +205,14 @@ with lib.hm.gvariant;
       win-switcher-popup-sorting = 1;
     };
 
-    "org/gnome/shell/extensions/auto-move-windows" = lib.mkDefault {
-      "chromium-browser.desktop" = 3;
-      "google-chrome.desktop" = 3;
-      "org.gnome.Calendar.desktop" = 2;
-      "org.gnome.Todo.desktop" = 2;
-      "org.telegram.desktop.desktop" = 1;
-      "spotify.desktop" = 1;
-    };
+    # "org/gnome/shell/extensions/auto-move-windows" = lib.mkDefault {
+    #   "chromium-browser.desktop" = 3;
+    #   "google-chrome.desktop" = 3;
+    #   "org.gnome.Calendar.desktop" = 2;
+    #   "org.gnome.Todo.desktop" = 2;
+    #   "org.telegram.desktop.desktop" = 1;
+    #   "spotify.desktop" = 1;
+    # };
 
     "org/gnome/shell/extensions/one-thing" = {
       index-in-status-bar = 2;
@@ -238,25 +233,26 @@ with lib.hm.gvariant;
       smart-workspace-names = true;
     };
 
-    "org/gnome/shell/extensions/space-bar/state" = {
-      workspace-names-map = lib.mkDefault ''
-        {
-          "code-url-handler": ["Code"],
-          "Code": ["Code"],
-          "gnome-control-center": ["Config"],
-          "google-chrome": ["Code"],
-          "Microsoft-edge": ["Code"],
-          "org.gnome.Calendar": ["Demanda"],
-          "org.gnome.Console": ["Code"],
-          "org.gnome.Settings": ["Config"],
-          "org.gnome.Terminal": ["Code"],
-          "org.gnome.Todo": ["Demanda"],
-          "Spotify": ["Chat"]
-        }
-      '';
-    };
+    # "org/gnome/shell/extensions/space-bar/state" = {
+    #   workspace-names-map = lib.mkDefault ''
+    #     {
+    #       "code-url-handler": ["Code"],
+    #       "Code": ["Code"],
+    #       "gnome-control-center": ["Config"],
+    #       "google-chrome": ["Code"],
+    #       "Microsoft-edge": ["Code"],
+    #       "org.gnome.Calendar": ["Demanda"],
+    #       "org.gnome.Console": ["Code"],
+    #       "org.gnome.Settings": ["Config"],
+    #       "org.gnome.Terminal": ["Code"],
+    #       "org.gnome.Todo": ["Demanda"],
+    #       "Spotify": ["Chat"]
+    #     }
+    #   '';
+    # };
 
     "org/gnome/shell/extensions/vitals" = lib.mkDefault {
+      position-in-panel = 0;
       show-battery = false;
       show-fan = false;
       show-processor = false;
