@@ -149,7 +149,7 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      disabled-extensions = lib.mkDefault [
+      disabled-extensions = lib.mkDefault (with pkgs;  [
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
         "native-window-placement@gnome-shell-extensions.gcampax.github.com"
         "places-menu@gnome-shell-extensions.gcampax.github.com"
@@ -157,7 +157,8 @@ with lib.hm.gvariant;
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
-      ];
+        gnomeExtensions.weather-oclock.extensionUuid
+      ]);
       enabled-extensions = with pkgs; [
         # "advanced-alt-tab@G-dH.github.com"
         # "pano@elhan.io"
@@ -173,7 +174,6 @@ with lib.hm.gvariant;
         gnomeExtensions.vitals.extensionUuid
         gnomeExtensions.wiggle.extensionUuid
         gnomeExtensions.wifi-qrcode.extensionUuid
-        gnomeExtensions.weather-oclock.extensionUuid
         gnomeExtensions.vscode-search-provider.extensionUuid
         gnomeExtensions.tailscale-qs.extensionUuid
       ];
@@ -181,6 +181,7 @@ with lib.hm.gvariant;
         "firefox.desktop"
         "org.gnome.Terminal.desktop"
         "code.desktop"
+        "zotero.desktop"
       ];
       last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "44.2";
@@ -256,10 +257,19 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/vitals" = lib.mkDefault {
+      show-battery = false;
       show-fan = false;
+      show-processor = false;
       show-storage = false;
+      show-system = false;
       show-voltage = false;
     };
+
+    "org/gnome/shell/weather" =
+      {
+        automatic-location = true;
+        locations = [ "<(uint32 2, <('Sobral', 'JSO', true, [(-3.67477, -40.31073)], [(-3.70202, -40.35630)])>)>" ];
+      };
 
     # "org/gnome/shell/world-clocks" = {
     #   locations = "@av []";
