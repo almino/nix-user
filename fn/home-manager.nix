@@ -8,6 +8,8 @@ in
 name:
 extra:
 extra // {
+  fonts.fontconfig.enable = true;
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = name;

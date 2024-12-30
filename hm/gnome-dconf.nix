@@ -1,6 +1,6 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
 # nix-shell -p pkgs.dconf2nix --run "dconf dump / | dconf2nix > gnome-dconf.nix"
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 with lib.hm.gvariant;
 
@@ -35,6 +35,7 @@ with lib.hm.gvariant;
     # nix-shell -p pkgs.dconf2nix --run "dconf dump /org/gnome/desktop/interface/ | dconf2nix > work-dconf.interface.nix"
     "org/gnome/desktop/interface" = {
       clock-show-weekday = true;
+      cursor-theme = "Bibata-Modern-Classic";
       document-font-name = "Roboto Slab 11";
       font-antialiasing = "rgba"; # "none"; "grayscale"; "rgba";
       font-hinting = "full"; # "none"; "slight"; "medium"; "full";
@@ -154,19 +155,32 @@ with lib.hm.gvariant;
         "places-menu@gnome-shell-extensions.gcampax.github.com"
         "window-list@gnome-shell-extensions.gcampax.github.com"
         "workspace-indicator@gnome-shell-extensions.gcampax.github.com"
-      ];
-      enabled-extensions = [
-        "advanced-alt-tab@G-dH.github.com"
         "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
-        "pano@elhan.io"
-        "space-bar@luchrioh"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "expandable-notifications@kaan.g.inam.org"
-        "Vitals@CoreCoding.com"
+      ];
+      enabled-extensions = with pkgs; [
+        # "advanced-alt-tab@G-dH.github.com"
+        # "pano@elhan.io"
+        # "space-bar@luchrioh"
+        # "expandable-notifications@kaan.g.inam.org"
+        # "Vitals@CoreCoding.com"
+        gnomeExtensions.advanced-alttab-window-switcher.extensionUuid
+        gnomeExtensions.expandable-notifications.extensionUuid
+        gnomeExtensions.nextcloud-folder.extensionUuid
+        gnomeExtensions.pano.extensionUuid
+        gnomeExtensions.pop-shell.extensionUuid
+        gnomeExtensions.space-bar.extensionUuid
+        gnomeExtensions.vitals.extensionUuid
+        gnomeExtensions.wiggle.extensionUuid
+        gnomeExtensions.wifi-qrcode.extensionUuid
+        gnomeExtensions.weather-oclock.extensionUuid
+        gnomeExtensions.vscode-search-provider.extensionUuid
+        gnomeExtensions.tailscale-qs.extensionUuid
       ];
       favorite-apps = lib.mkDefault [
-        "google-chrome.desktop"
+        "firefox.desktop"
         "org.gnome.Terminal.desktop"
+        "code.desktop"
       ];
       last-selected-power-profile = "performance";
       welcome-dialog-last-shown-version = "44.2";
