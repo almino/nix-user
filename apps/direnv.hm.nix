@@ -3,6 +3,7 @@
 {
   # https://github.com/direnv/direnv/wiki/Python#uv
   home.file.python_uv = {
+    target = ".direnvrc";
     text = ''
       layout_uv() {
         if [[ -d ".venv" ]]; then
