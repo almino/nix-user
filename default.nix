@@ -16,6 +16,7 @@
       nextcloud-client
       niv
       sigil
+      uv
       zotero
     ];
     shell = lib.mkForce pkgs.fish;
