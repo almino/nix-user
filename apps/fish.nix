@@ -11,11 +11,11 @@
       gitPush = "git push --progress --recurse-submodules=on-demand";
       gitUp = "${gitPull}; and ${gitPush}";
       hms = "home-manager switch --no-out-link -b (date +\"%Y%m%d-%H%M%S\")";
-      noBuild = "--no-build-output --no-build-nix";
+      noBuild = "--no-build-nix";
       now = "date +\"%Y-%m-%d--%H-%M-%S\"";
       pip = "sudo python3 -m pip";
-      rebuild = "sudo nixos-rebuild";
-      restart = "sudo systemctl kexec";
+      rebuild = "sudo nixos-rebuild --no-build-output";
+      restart = "sudo reboot";
       screen-backup-dir = "screen sh -c \"${backup-dir}\"";
       tarxz = "tar --checkpoint=1500 --create --xz";
       tmux = "tmux";
