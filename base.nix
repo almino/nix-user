@@ -19,6 +19,7 @@
   ];
 
   users.users.almino = {
+    extraGroups = [ "networkmanager" "wheel" ];
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
     packages = with pkgs; [ bat eza gh ];

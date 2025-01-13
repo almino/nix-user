@@ -10,10 +10,6 @@
 
   users.users.almino = {
     description = "Almino";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
     isNormalUser = lib.mkDefault true;
   };
 }
