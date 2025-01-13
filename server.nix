@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./apps/direnv.nix
     ./apps/fish.nix
     ./apps/tmux.nix
     ./www-data.nix
