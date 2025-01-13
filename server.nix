@@ -1,7 +1,11 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ./apps/fish.nix ./www-data.nix ];
+  imports = [
+    ./apps/fish.nix
+    ./apps/tmux.nix
+    ./www-data.nix
+  ];
 
   services.mysql.ensureUsers = [{
     name = "almino";
@@ -17,7 +21,7 @@
     isNormalUser = lib.mkDefault true;
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
-    packages = with pkgs; [ eza ];
+    packages = with pkgs; [ eza gh ];
     shell = lib.mkForce pkgs.fish;
   };
 }
