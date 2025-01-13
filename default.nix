@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ./base.nix ];
+  imports = [ ./base.nix ./typography.nix ];
 
   users.users.almino = {
     description = "Almino";
@@ -10,14 +10,11 @@
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
     packages = with pkgs; [
-      eza
-      gh
       librewolf
       nextcloud-client
       niv
       sigil
       zotero
     ];
-    shell = lib.mkForce pkgs.fish;
   };
 }
