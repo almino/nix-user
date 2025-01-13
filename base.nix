@@ -19,6 +19,7 @@
   ];
 
   users.users.almino = {
+    description = "Almino";
     extraGroups = [ "networkmanager" "wheel" ];
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário

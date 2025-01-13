@@ -9,7 +9,6 @@
   }];
 
   users.users.almino = {
-    description = "Almino";
     isNormalUser = lib.mkDefault true;
   };
 }

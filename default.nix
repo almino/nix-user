@@ -4,7 +4,6 @@
   imports = [ ./base.nix ./typography.nix ];
 
   users.users.almino = {
-    description = "Almino";
     isNormalUser = lib.mkDefault true;
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
