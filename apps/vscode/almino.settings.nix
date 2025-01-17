@@ -5,7 +5,6 @@
   "remote.SSH.remotePlatform" = {
     artemis = "linux";
     desktop = "linux";
-    hp = "linux";
     qemu = "linux";
   };
 }
