@@ -31,8 +31,11 @@
       gpull = lib.mkDefault gitPull;
       gpush = lib.mkDefault gitPush;
       hms = lib.mkDefault hms;
+      ifdown = lib.mkDefault "sudo ip link set eno1 down";
+      ifup = lib.mkDefault "sudo ip link set eno1 up";
       ip = lib.mkDefault "ip --color a";
       nboot = lib.mkDefault "${rebuild} boot; and ${gc}";
+      noff = lib.mkDefault "${rebuild} test --option binary-caches \"\" --option substitute false";
       nreboot = lib.mkDefault "${rebuild} boot ${noBuild}; and ${gc}; and ${restart}";
       nswitch = lib.mkDefault "${rebuild} switch ${noBuild}";
       ntest = lib.mkDefault "${rebuild} test ${noBuild}";
