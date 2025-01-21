@@ -11,10 +11,11 @@
       gitPush = "git push --progress --recurse-submodules=on-demand";
       gitUp = "${gitPull}; and ${gitPush}";
       hms = "home-manager switch --no-out-link -b (date +\"%Y%m%d-%H%M%S\")";
-      noBuild = "--no-build-nix";
+      noBuildOutput = "--no-build-output";
+      noBuildSystem = "--no-build-nix";
       now = "date +\"%Y-%m-%d--%H-%M-%S\"";
       pip = "sudo python3 -m pip";
-      rebuild = "sudo nixos-rebuild --no-build-output";
+      rebuild = "sudo nixos-rebuild";
       restart = "sudo reboot";
       screen-backup-dir = "screen sh -c \"${backup-dir}\"";
       tarxz = "tar --checkpoint=1500 --create --xz";
@@ -25,7 +26,7 @@
       backup-dir = lib.mkDefault backup-dir;
       bd = lib.mkDefault backup-dir;
       diren = lib.mkDefault "direnv";
-      full-switch = lib.mkDefault "${rebuild} switch ${noBuild}";
+      full-switch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem}";
       gc = lib.mkDefault gc;
       gitup = lib.mkDefault gitUp;
       gpull = lib.mkDefault gitPull;
@@ -34,11 +35,11 @@
       ifdown = lib.mkDefault "sudo ip link set eno1 down";
       ifup = lib.mkDefault "sudo ip link set eno1 up";
       ip = lib.mkDefault "ip --color a";
-      nboot = lib.mkDefault "${rebuild} boot; and ${gc}";
-      noff = lib.mkDefault "${rebuild} test --option binary-caches \"\" --option substitute false";
-      nreboot = lib.mkDefault "${rebuild} boot ${noBuild}; and ${gc}; and ${restart}";
-      nswitch = lib.mkDefault "${rebuild} switch ${noBuild}";
-      ntest = lib.mkDefault "${rebuild} test ${noBuild}";
+      nboot = lib.mkDefault "${rebuild} boot ${noBuildOutput}; and ${gc}";
+      noff = lib.mkDefault "${rebuild} test ${noBuildOutput} --option binary-caches \"\" --option substitute false";
+      nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem}; and ${gc}; and ${restart}";
+      nswitch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem}";
+      ntest = lib.mkDefault "${rebuild} test ${noBuildOutput} ${noBuildSystem}";
       pcp = lib.mkDefault "rsync -ah --progress";
       pip = lib.mkDefault pip;
       pip3 = lib.mkDefault pip;
@@ -47,7 +48,7 @@
       rmf = lib.mkDefault "rm --force --recursive";
       rpull = "git pull --recurse-submodules";
       rup = lib.mkDefault (builtins.toString [
-        "${rebuild} boot ${noBuild} ${up};"
+        "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${up};"
         "and ${gc};"
         "and ${restart}"
       ]);
@@ -61,7 +62,7 @@
       tarxz = lib.mkDefault "tar --checkpoint=5 --create --xz --file";
       temux = tmux;
       termux = tmux;
-      up = lib.mkDefault "${rebuild} switch ${noBuild} ${up}";
+      up = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${up}";
       upgit = lib.mkDefault gitUp;
     };
 
