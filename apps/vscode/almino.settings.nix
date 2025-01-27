@@ -4,7 +4,8 @@
   "remote.SSH.configFile" = ".ssh/config";
   "remote.SSH.remotePlatform" = {
     artemis = "linux";
-    desktop = "linux";
+    demeter = "linux";
+    servarr = "linux";
     qemu = "linux";
   };
 }
