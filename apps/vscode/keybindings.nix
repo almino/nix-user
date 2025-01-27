@@ -5,6 +5,7 @@
   { "key" = "ctrl+,"; "command" = "extension.toggleComma"; "when" = "editorTextFocus"; }
   { "key" = "ctrl+;"; "command" = "extension.toggleSemicolon"; "when" = "editorTextFocus"; }
   { "key" = "ctrl+'"; "command" = "workbench.action.terminal.toggleTerminal"; "when" = "terminal.active"; }
+  { "key" = "ctrl+i"; "command" = "-emojisense.quickEmoji"; "when" = "editorTextFocus"; }
   { "key" = "ctrl+q"; "command" = "-workbench.action.quit"; "when" = "editorTextFocus"; }
   { "key" = "ctrl+q"; "command" = "workbench.action.navigateToLastEditLocation"; "when" = "editorTextFocus"; }
   # Essa aqui eu não faço a menor ideia do que fazia
