@@ -3,6 +3,7 @@
 
 with pkgs.vscode-extensions; [
   alefragnani.project-manager
+  arrterian.nix-env-selector
   batisteo.vscode-django
   bmewburn.vscode-intelephense-client
   bradlc.vscode-tailwindcss
@@ -12,12 +13,16 @@ with pkgs.vscode-extensions; [
   firefox-devtools.vscode-firefox-debug
   github.copilot
   github.copilot-chat
+  kamikillerto.vscode-colorize
   ms-python.black-formatter
   ms-python.debugpy
   ms-python.python
   ms-python.vscode-pylance
+  rust-lang.rust-analyzer
   stephlin.vscode-tmux-keybinding
   tailscale.vscode-tailscale
+  tamasfe.even-better-toml
+  tauri-apps.tauri-vscode
   usernamehw.errorlens
   vue.volar
   xdebug.php-debug
