@@ -105,12 +105,12 @@
   "window.commandCenter" = true;
   "window.titleBarStyle" = "custom";
   "window.zoomLevel" = lib.mkDefault 1.5;
-  "workbench.colorTheme" = lib.mkDefault "Cobalt2 Theme Tweaked";
+  "workbench.colorTheme" = lib.mkDefault "Solarized Light";
   # "workbench.colorTheme" = lib.mkDefault "Palenight (Mild Contrast)";
   # "workbench.colorTheme" = lib.mkDefault "Quiet Light";
   "workbench.iconTheme" = lib.mkDefault "material-icon-theme";
   # "workbench.iconTheme" = null;
-  "workbench.preferredDarkColorTheme" = lib.mkDefault "Palenight (Mild Contrast)";
+  "workbench.preferredDarkColorTheme" = lib.mkDefault "Cobalt2 Theme Tweaked";
   # "workbench.preferredLightColorTheme" = "Adwaita Light";
   "workbench.tree.indent" = 12;
 }
