@@ -53,7 +53,8 @@ in
           "org.gnome.Terminal":["Config"],
           "org.gnome.Todo":["Plan"],
           "librewolf":["Listen"],
-          "Zotero":["Read"]}
+          "Zotero":["Read"]
+        }
       '';
     };
   };

@@ -160,7 +160,6 @@ with lib.hm.gvariant;
         gnomeExtensions.weather-oclock.extensionUuid
       ]);
       enabled-extensions = with pkgs; [
-        # "advanced-alt-tab@G-dH.github.com"
         # "pano@elhan.io"
         # "space-bar@luchrioh"
         # "expandable-notifications@kaan.g.inam.org"
@@ -169,9 +168,9 @@ with lib.hm.gvariant;
         gnomeExtensions.nextcloud-folder.extensionUuid
         gnomeExtensions.pano.extensionUuid
         gnomeExtensions.vitals.extensionUuid
-        gnomeExtensions.wiggle.extensionUuid
-        gnomeExtensions.wifi-qrcode.extensionUuid
         gnomeExtensions.vscode-search-provider.extensionUuid
+        gnomeExtensions.wifi-qrcode.extensionUuid
+        gnomeExtensions.wiggle.extensionUuid
       ];
       favorite-apps = lib.mkDefault [
         "firefox.desktop"
@@ -196,6 +195,7 @@ with lib.hm.gvariant;
       switcher-popup-monitor = 3;
       switcher-popup-position = 2;
       switcher-popup-preview-selected = 2;
+      switcher-popup-show-if-no-win = false;
       switcher-popup-theme = 0;
       switcher-ws-thumbnails = 1;
       win-switch-include-modals = true;
