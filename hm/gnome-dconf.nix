@@ -106,9 +106,9 @@ with lib.hm.gvariant;
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = lib.mkDefault false;
       night-light-schedule-automatic = lib.mkDefault true;
-      night-light-schedule-from = lib.mkDefault "17:00";
-      night-light-schedule-to = lib.mkDefault "05:00";
-      night-light-temperature = lib.mkDefault 2500;
+      night-light-schedule-from = lib.mkDefault 17.0;
+      night-light-schedule-to = lib.mkDefault 6.0;
+      night-light-temperature = lib.mkDefault (mkUint32 2848);
     };
 
     "org/gnome/shell/keybindings" = {

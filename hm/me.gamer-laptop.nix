@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
 
+with lib.hm.gvariant;
+
 let
   vsCode = import ../fn/vscode.nix
     { inherit config lib pkgs; };
@@ -8,6 +10,14 @@ in
   dconf.enable = true;
 
   dconf.settings = {
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = lib.mkForce true;
+      night-light-schedule-automatic = lib.mkForce false;
+      night-light-schedule-from = lib.mkForce 17.0;
+      night-light-schedule-to = lib.mkForce 6.0;
+      night-light-temperature = lib.mkForce (mkUint32 2848);
+    };
+
     "org/gnome/shell" = {
       disabled-extensions = lib.mkDefault (with pkgs;  [
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
