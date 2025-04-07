@@ -8,7 +8,8 @@
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
     packages = with pkgs; [
-      librewolf
+      # librewolf # muito fresco pra configurações
+      minder
       nextcloud-client
       niv
       sigil
