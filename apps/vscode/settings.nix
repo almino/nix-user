@@ -80,6 +80,7 @@
   "gitlens.defaultDateLocale" = "pt-BR";
   "gitlens.defaultDateShortFormat" = "DD/MM/YYYY";
   "gitlens.defaultTimeFormat" = "HH:mm";
+  "gitlens.launchpad.indicator.enabled" = false;
   "nix.enableLanguageServer" = true; # Enable LSP.
   "nix.serverPath" = "nil"; # The path to the LSP server executable.
   "nix.serverSettings".nil.formatting.command =
