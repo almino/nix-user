@@ -84,14 +84,14 @@ in
     };
   });
 
-  systemd.user.services.mpris-proxy = {
-    Install = { WantedBy = [ "default.target" ]; };
-    Service = {
-      ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
-    };
-    Unit = {
-      After = [ "network.target" "sound.target" ];
-      Description = "Mpris proxy";
-    };
-  };
+  # systemd.user.services.mpris-proxy = {
+  #   Install = { WantedBy = [ "default.target" ]; };
+  #   Service = {
+  #     ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+  #   };
+  #   Unit = {
+  #     After = [ "network.target" "sound.target" ];
+  #     Description = "Mpris proxy";
+  #   };
+  # };
 }
