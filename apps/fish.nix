@@ -6,11 +6,11 @@
   programs.fish.shellAbbrs =
     let
       backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz (/run/current-system/sw/bin/ls -A $PWD)";
-      gc = "sudo nix-collect-garbage";
+      gc = "${unlink}; and sudo nix-collect-garbage";
       gitPull = "git pull --recurse-submodules --autostash";
       gitPush = "git push --progress --recurse-submodules=on-demand";
       gitUp = "${gitPull}; and ${gitPush}";
-      hms = "home-manager switch --no-out-link -b (date +\"%Y%m%d-%H%M%S\")";
+      hms = "home-manager switch --no-out-link -b (date +\"%Y%m%d-%H%M%S\"); and ${unlink}";
       noBuildOutput = "--no-build-output";
       noBuildSystem = "--no-build-nix";
       now = "date +\"%Y-%m-%d--%H-%M-%S\"";
@@ -20,13 +20,15 @@
       screen-backup-dir = "screen sh -c \"${backup-dir}\"";
       tarxz = "tar --checkpoint=1500 --create --xz";
       tmux = "tmux";
+      tup = "${rebuild} test ${noBuildOutput} ${noBuildSystem} ${up}; and ${unlink}";
       up = "--upgrade-all";
+      unlink = "unlink result";
     in
     {
       backup-dir = lib.mkDefault backup-dir;
       bd = lib.mkDefault backup-dir;
       diren = lib.mkDefault "direnv";
-      full-switch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem}";
+      full-switch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem}; and ${unlink}";
       gc = lib.mkDefault gc;
       gitup = lib.mkDefault gitUp;
       gpull = lib.mkDefault gitPull;
@@ -35,11 +37,12 @@
       ifdown = lib.mkDefault "sudo ip link set eno1 down";
       ifup = lib.mkDefault "sudo ip link set eno1 up";
       ip = lib.mkDefault "ip --color a";
-      nboot = lib.mkDefault "${rebuild} boot ${noBuildOutput}; and ${gc}";
-      noff = lib.mkDefault "${rebuild} test ${noBuildOutput} --option binary-caches \"\" --option substitute false";
-      nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem}; and ${gc}; and ${restart}";
-      nswitch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem}";
-      ntest = lib.mkDefault "${rebuild} test ${noBuildOutput} ${noBuildSystem}";
+      nboot = lib.mkDefault "${rebuild} boot ${noBuildOutput}; and ${unlink}; and ${gc}";
+      noff = lib.mkDefault "${rebuild} test ${noBuildOutput} --option binary-caches \"\" --option substitute false; and ${unlink}";
+      nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem}; and ${unlink}; and ${gc}; and ${restart}";
+      nswitch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem}; and ${unlink}";
+      ntest = lib.mkDefault "${rebuild} test ${noBuildOutput} ${noBuildSystem}; and ${unlink}";
+      ntup = lib.mkDefault tup;
       pcp = lib.mkDefault "rsync -ah --progress";
       pip = lib.mkDefault pip;
       pip3 = lib.mkDefault pip;
@@ -49,6 +52,7 @@
       rpull = "git pull --recurse-submodules";
       rup = lib.mkDefault (builtins.toString [
         "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${up};"
+        "and ${unlink};"
         "and ${gc};"
         "and ${restart}"
       ]);
@@ -62,7 +66,8 @@
       tarxz = lib.mkDefault "tar --checkpoint=5 --create --xz --file";
       temux = tmux;
       termux = tmux;
-      up = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${up}";
+      tup = lib.mkDefault tup;
+      up = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${up}; and ${unlink}";
       upgit = lib.mkDefault gitUp;
     };
 
