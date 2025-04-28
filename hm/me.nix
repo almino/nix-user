@@ -6,6 +6,15 @@ let
 in
 
 defaultHomeManager "almino" {
+  dconf.settings."org/gnome/shell".favorite-apps = [
+    "firefox.desktop"
+    "org.gnome.Terminal.desktop"
+    "code.desktop"
+    "feishin.desktop"
+    "obsidian.desktop"
+    "zotero.desktop"
+  ];
+
   imports = [
     ../apps/direnv.hm.nix
     ../apps/git.hm.nix
