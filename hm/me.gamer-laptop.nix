@@ -42,10 +42,12 @@ in
         gnomeExtensions.vscode-search-provider.extensionUuid
         gnomeExtensions.tailscale-qs.extensionUuid
       ];
-      favorite-apps = lib.mkDefault [
+      favorite-apps = [
         "firefox.desktop"
         "org.gnome.Terminal.desktop"
         "code.desktop"
+        "feishin.desktop"
+        "obsidian.desktop"
         "zotero.desktop"
       ];
     };
@@ -67,6 +69,11 @@ in
         }
       '';
     };
+  };
+
+  home.file.obsidian = {
+    source = "${pkgs.obsidian}/share/applications/obsidian.desktop";
+    target = ".config/autostart/obsidian.desktop";
   };
 
   imports = [
