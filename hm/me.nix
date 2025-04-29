@@ -9,6 +9,7 @@ defaultHomeManager "almino" {
   dconf.settings."org/gnome/shell".favorite-apps =
     lib.mkDefault [
       "net.waterfox.waterfox.desktop"
+      # "floorp.desktop"
       "org.gnome.Terminal.desktop"
       "code.desktop"
       "feishin.desktop"
