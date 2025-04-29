@@ -9,6 +9,7 @@
       flatpak = "/run/current-system/sw/bin/flatpak";
       install = "${flatpak} install --or-update --assumeyes --noninteractive";
     in
+    # /var/lib/flatpak/exports/share/applications/
     builtins.concatStringsSep " &&" [
       "${install} flathub re.sonny.Eloquent"
       "${install} flathub net.waterfox.waterfox"
