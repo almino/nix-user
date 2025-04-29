@@ -8,7 +8,7 @@ in
 defaultHomeManager "almino" {
   dconf.settings."org/gnome/shell".favorite-apps =
     lib.mkDefault [
-      "firefox.desktop"
+      "net.waterfox.waterfox.desktop"
       "org.gnome.Terminal.desktop"
       "code.desktop"
       "feishin.desktop"
@@ -86,7 +86,30 @@ defaultHomeManager "almino" {
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
+    # /var/lib/flatpak/exports/share/applications/
+    BROWSER = "${lib.getExe pkgs.flatpak}  run --branch=stable --arch=x86_64 --command=waterfox --file-forwarding net.waterfox.waterfox";
   };
 
   programs.gh = import ../apps/gh.nix;
+
+
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications =
+      let
+        browsers = [
+          "net.waterfox.waterfox.desktop"
+          "firefox.desktop"
+        ];
+      in
+      {
+        "default-web-browser" = browsers;
+        "text/html" = browsers;
+        "x-scheme-handler/http" = browsers;
+        "x-scheme-handler/https" = browsers;
+        "x-scheme-handler/about" = browsers;
+        "x-scheme-handler/unknown" = browsers;
+      };
+  };
 }
