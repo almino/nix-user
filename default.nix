@@ -13,7 +13,7 @@
     builtins.concatStringsSep " &&" [
       "${install} flathub re.sonny.Eloquent"
       "${install} flathub net.waterfox.waterfox"
-      "${install} flathub app.zen_browser.zen"
+      # "${install} flathub app.zen_browser.zen"
       "${install} flathub net.codelogistics.webapps"
     ];
 
