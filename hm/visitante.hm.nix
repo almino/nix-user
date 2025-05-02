@@ -5,7 +5,7 @@ let
     { inherit config lib pkgs; };
 in
 
-defaultHomeManager "almino" {
+defaultHomeManager "visitante" {
   imports = [
     ../apps/direnv.hm.nix
     ../apps/git.hm.nix

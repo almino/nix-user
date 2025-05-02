@@ -13,7 +13,7 @@ extra // {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = name;
-  home.homeDirectory = "/home/" + name;
+  home.homeDirectory = lib.mkDefault ("/home/" + name);
 
   imports = [
     ../hm/flatpak.hm.nix
