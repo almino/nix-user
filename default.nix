@@ -26,6 +26,7 @@
       drawio
       feishin
       firefoxpwa
+      hugo
       # librewolf # muito fresco pra configurações
       minder
       nextcloud-client
