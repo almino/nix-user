@@ -2,7 +2,7 @@
 
 let
   userPath =
-    "/apps/vscode/${config.home-manager.home.username}.settings.nix";
+    "/apps/vscode/${config.home.username}.settings.nix";
 in
 let
   user = (if builtins.pathExists (../. + userPath) then

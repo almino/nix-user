@@ -29,7 +29,7 @@
     packages = with pkgs; [
       android-studio
       # android-tools # https://github.com/NixOS/nixpkgs/blob/1c6e20d41d6a9c1d737945962160e8571df55daa/nixos/modules/programs/adb.nix#L29C17-L29C31
-      androidenv.androidPkgs.androidsdk
+      # androidenv.androidPkgs.androidsdk
       gradle
       gradle-completion
       jdk21
