@@ -26,6 +26,7 @@
       drawio
       feishin
       firefoxpwa
+      go
       hugo
       # librewolf # muito fresco pra configurações
       minder
