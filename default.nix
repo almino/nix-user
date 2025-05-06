@@ -1,6 +1,12 @@
 { lib, pkgs, ... }:
 
 {
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    poppler_utils
+  ];
+
   imports = [ ./base.nix ./typography.nix ];
 
   # https://nixos.org/manual/nixos/stable/options#opt-system.activationScripts
