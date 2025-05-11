@@ -1,5 +1,9 @@
 { lib, pkgs, ... }:
 
+let
+  darkTheme = lib.mkDefault "Cobalt2 Theme Tweaked";
+  lightTheme = lib.mkDefault "Solarized Light";
+in
 {
   "[angular]"."editor.defaultFormatter" =
     "esbenp.prettier-vscode";
@@ -102,16 +106,19 @@
       "monospace"
     ]);
   "terminal.integrated.fontSize" = lib.mkDefault 12;
+  "vscode-auto-light-dark-theme.darkTheme" = darkTheme;
+  "vscode-auto-light-dark-theme.lightTheme" = lightTheme;
+  "vscode-auto-light-dark-theme.toggleSetting" = lib.mkDefault "system";
   # "window.autoDetectColorScheme" = true;
   "window.commandCenter" = true;
   "window.titleBarStyle" = "custom";
   "window.zoomLevel" = lib.mkDefault 1.5;
-  "workbench.colorTheme" = lib.mkDefault "Solarized Light";
+  "workbench.colorTheme" = lightTheme;
   # "workbench.colorTheme" = lib.mkDefault "Palenight (Mild Contrast)";
   # "workbench.colorTheme" = lib.mkDefault "Quiet Light";
   "workbench.iconTheme" = lib.mkDefault "material-icon-theme";
   # "workbench.iconTheme" = null;
-  "workbench.preferredDarkColorTheme" = lib.mkDefault "Cobalt2 Theme Tweaked";
+  "workbench.preferredDarkColorTheme" = darkTheme;
   # "workbench.preferredLightColorTheme" = "Adwaita Light";
   "workbench.tree.indent" = 12;
 }
