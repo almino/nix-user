@@ -9,6 +9,10 @@
 
   imports = [ ./base.nix ./typography.nix ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-33.4.11" # feishin
+  ];
+
   # https://nixos.org/manual/nixos/stable/options#opt-system.activationScripts
   system.activationScripts.flatpakApps =
     let
