@@ -92,25 +92,4 @@ defaultHomeManager "almino" {
   };
 
   programs.gh = import ../apps/gh.nix;
-
-
-
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications =
-      let
-        browsers = [
-          # "net.waterfox.waterfox.desktop"
-          "firefox.desktop"
-        ];
-      in
-      {
-        "default-web-browser" = browsers;
-        "text/html" = browsers;
-        "x-scheme-handler/http" = browsers;
-        "x-scheme-handler/https" = browsers;
-        "x-scheme-handler/about" = browsers;
-        "x-scheme-handler/unknown" = browsers;
-      };
-  };
 }

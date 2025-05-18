@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  imports = [ ./apps/gnome.default-applications.nix ];
+
   users.users.almino.packages = with pkgs; [
     endeavour
     gnome-decoder
