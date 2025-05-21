@@ -109,7 +109,7 @@ in
   "vscode-auto-light-dark-theme.darkTheme" = darkTheme;
   "vscode-auto-light-dark-theme.lightTheme" = lightTheme;
   "vscode-auto-light-dark-theme.toggleSetting" = lib.mkDefault "system";
-  # "window.autoDetectColorScheme" = true;
+  "window.autoDetectColorScheme" = true;
   "window.commandCenter" = true;
   "window.titleBarStyle" = "custom";
   "window.zoomLevel" = lib.mkDefault 1.5;
