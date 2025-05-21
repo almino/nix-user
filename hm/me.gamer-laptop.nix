@@ -42,8 +42,10 @@ in
         gnomeExtensions.vscode-search-provider.extensionUuid
         gnomeExtensions.tailscale-qs.extensionUuid
       ];
-      favorite-apps = [
-        "firefox.desktop"
+      favorite-apps = lib.mkForce [
+        # "net.waterfox.waterfox.desktop"
+        # ~/.local/state/home-manager/gcroots/current-home
+        "floorp.desktop"
         "org.gnome.Terminal.desktop"
         "code.desktop"
         "feishin.desktop"
@@ -82,10 +84,16 @@ in
     ./me.nix
   ];
 
+  programs.bun = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
   programs.vscode = lib.mkForce (vsCode {
     # https://nix-community.github.io/home-manager/options.html#opt-programs.vscode.package
     package = pkgs.unstable.vscode;
     settings = {
+      "obsidian-md-vsc.defaultVault" = "Pessoal";
       "window.zoomLevel" = 1.25;
       # "workbench.colorTheme" = "Solarized Light";
     };
