@@ -4,6 +4,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    eza
     graphicsmagick-imagemagick-compat # convert file.jpg -quality 50% file.small.jpg
     poppler_utils
   ];

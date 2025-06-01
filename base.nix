@@ -24,7 +24,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
-    packages = with pkgs; [ bat eza gh ];
+    packages = with pkgs; [ bat gh ];
     shell = lib.mkForce pkgs.fish;
   };
 }
