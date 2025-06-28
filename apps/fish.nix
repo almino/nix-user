@@ -6,7 +6,7 @@
   programs.fish.shellAbbrs =
     let
       backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz (/run/current-system/sw/bin/ls -A $PWD)";
-      gc = "${unlink}; and sudo nix-collect-garbage";
+      gc = "sudo nix-collect-garbage; and ${unlink}";
       gitPull = "git pull --recurse-submodules --autostash";
       gitPush = "git push --progress --recurse-submodules=on-demand";
       gitUp = "${gitPull}; and ${gitPush}";
