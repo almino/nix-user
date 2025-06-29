@@ -31,8 +31,8 @@ in
       ]);
       enabled-extensions = with pkgs; [
         gnomeExtensions.advanced-alttab-window-switcher.extensionUuid
-        gnomeExtensions.expandable-notifications.extensionUuid
-        gnomeExtensions.nextcloud-folder.extensionUuid
+        # gnomeExtensions.expandable-notifications.extensionUuid
+        # gnomeExtensions.nextcloud-folder.extensionUuid
         gnomeExtensions.pano.extensionUuid
         gnomeExtensions.pop-shell.extensionUuid
         gnomeExtensions.space-bar.extensionUuid

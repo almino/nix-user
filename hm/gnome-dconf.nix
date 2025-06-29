@@ -160,12 +160,15 @@ with lib.hm.gvariant;
         gnomeExtensions.weather-oclock.extensionUuid
       ]);
       enabled-extensions = with pkgs; [
+        # "expandable-notifications@kaan.g.inam.org"
         # "pano@elhan.io"
         # "space-bar@luchrioh"
-        # "expandable-notifications@kaan.g.inam.org"
         # "Vitals@CoreCoding.com"
-        gnomeExtensions.expandable-notifications.extensionUuid
-        gnomeExtensions.nextcloud-folder.extensionUuid
+        # gnomeExtensions.expandable-notifications.extensionUuid
+        # gnomeExtensions.nextcloud-folder.extensionUuid
+        gnomeExtensions.bing-wallpaper-changer.extensionUuid
+        gnomeExtensions.browser-search-provider.extensionUuid
+        gnomeExtensions.firefox-profiles.extensionUuid
         gnomeExtensions.pano.extensionUuid
         gnomeExtensions.vitals.extensionUuid
         gnomeExtensions.vscode-search-provider.extensionUuid
