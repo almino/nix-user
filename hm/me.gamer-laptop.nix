@@ -30,17 +30,18 @@ in
         gnomeExtensions.weather-oclock.extensionUuid
       ]);
       enabled-extensions = with pkgs; [
-        gnomeExtensions.advanced-alttab-window-switcher.extensionUuid
+        "pomodoro@arun.codito.in"
         # gnomeExtensions.expandable-notifications.extensionUuid
         # gnomeExtensions.nextcloud-folder.extensionUuid
+        gnomeExtensions.advanced-alttab-window-switcher.extensionUuid
         gnomeExtensions.pano.extensionUuid
         gnomeExtensions.pop-shell.extensionUuid
         gnomeExtensions.space-bar.extensionUuid
-        gnomeExtensions.vitals.extensionUuid
-        gnomeExtensions.wiggle.extensionUuid
-        gnomeExtensions.wifi-qrcode.extensionUuid
-        gnomeExtensions.vscode-search-provider.extensionUuid
         gnomeExtensions.tailscale-qs.extensionUuid
+        gnomeExtensions.vitals.extensionUuid
+        gnomeExtensions.vscode-search-provider.extensionUuid
+        gnomeExtensions.wifi-qrcode.extensionUuid
+        gnomeExtensions.wiggle.extensionUuid
       ];
       favorite-apps = lib.mkForce [
         # "net.waterfox.waterfox.desktop"
