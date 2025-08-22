@@ -39,8 +39,8 @@
       ifup = lib.mkDefault "sudo ip link set eno1 up";
       ip = lib.mkDefault "ip --color a";
       ls = lib.mkDefault "eza -lAgh";
-      nboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${barWithLogs}; and ${gc}; and ${unlink}";
-      nbootup = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${up} ${barWithLogs}; and ${gc}; and ${unlink}";
+      nboot = lib.mkDefault "${gc}; and ${rebuild} boot ${noBuildOutput} ${barWithLogs}; and ${gc}; and ${unlink}";
+      nbootup = lib.mkDefault "${gc}; and ${rebuild} boot ${noBuildOutput} ${up} ${barWithLogs}; and ${gc}; and ${unlink}";
       noff = lib.mkDefault "${rebuild} test ${noBuildOutput} ${barWithLogs} --option binary-caches \"\" --option substitute false; and ${unlink}";
       nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${gc}; and ${restart}; and ${unlink}";
       nswitch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
