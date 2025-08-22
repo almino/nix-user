@@ -7,7 +7,7 @@
     let
       backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz (/run/current-system/sw/bin/ls -A $PWD)";
       barWithLogs = "--log-format bar-with-logs";
-      gc = "sudo nix-collect-garbage; and ${unlink}";
+      gc = "sudo nix-collect-garbage";
       gitPull = "git pull --recurse-submodules --autostash";
       gitPush = "git push --progress --recurse-submodules=on-demand";
       gitUp = "${gitPull}; and ${gitPush}";
@@ -39,9 +39,10 @@
       ifup = lib.mkDefault "sudo ip link set eno1 up";
       ip = lib.mkDefault "ip --color a";
       ls = lib.mkDefault "eza -lAgh";
-      nboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${barWithLogs}; and ${unlink}; and ${gc}";
+      nboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${barWithLogs}; and ${gc}; and ${unlink}";
+      nbootup = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${up} ${barWithLogs}; and ${gc}; and ${unlink}";
       noff = lib.mkDefault "${rebuild} test ${noBuildOutput} ${barWithLogs} --option binary-caches \"\" --option substitute false; and ${unlink}";
-      nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}; and ${gc}; and ${restart}";
+      nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${gc}; and ${restart}; and ${unlink}";
       nswitch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
       ntest = lib.mkDefault "${rebuild} test ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
       ntup = lib.mkDefault tup;
@@ -54,9 +55,9 @@
       rpull = "git pull --recurse-submodules";
       rup = lib.mkDefault (builtins.toString [
         "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs} ${up};"
-        "and ${unlink};"
         "and ${gc};"
         "and ${restart}"
+        "and ${unlink}"
       ]);
       sbackup-dir = lib.mkDefault screen-backup-dir;
       sbd = lib.mkDefault screen-backup-dir;
