@@ -44,6 +44,7 @@
         "x-scheme-handler/mailto" = lib.mkDefault "org.gnome.Geary.desktop";
         "x-scheme-handler/tg" = lib.mkDefault "telegram.desktop";
         "x-scheme-handler/vscode" = lib.mkDefault "code-url-handler.desktop";
+        "x-scheme-handler/xmpp" = lib.mkDefault "dino.desktop";
         "x-scheme-handler/zotero" = lib.mkDefault "zotero.desktop";
 
         "default-web-browser" = lib.mkDefault browsers;

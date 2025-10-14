@@ -74,9 +74,19 @@ in
     };
   };
 
-  home.file.obsidian = {
-    source = "${pkgs.obsidian}/share/applications/obsidian.desktop";
-    target = ".config/autostart/obsidian.desktop";
+  home.file = {
+    ## Sources:
+    # /run/current-system/sw/share/applications/mimeinfo.cache
+    # ~/.nix-profile/share/applications/mimeinfo.cache
+    # /etc/profiles/per-user/almino/share/applications/mimeinfo.cache
+    dino = {
+      source = "${pkgs.dino}/share/applications/im.dino.Dino.desktop";
+      target = ".config/autostart/dino.desktop";
+    };
+    obsidian = {
+      source = "${pkgs.obsidian}/share/applications/obsidian.desktop";
+      target = ".config/autostart/obsidian.desktop";
+    };
   };
 
   imports = [
