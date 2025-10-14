@@ -34,7 +34,7 @@
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
     packages = with pkgs; [
-      # dia # diagramas (não gostei)
+      dino
       drawio
       feishin
       firefoxpwa
