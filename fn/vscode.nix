@@ -21,15 +21,17 @@ in
 }:
 {
   enable = enable;
-  enableUpdateCheck = enableUpdateCheck;
-  extensions =
-    if extensions == [] then
-      (import ./vscx.nix { inherit config pkgs; } {})
-    else extensions;
-  keybindings = keybindings
-    ++ (import ../apps/vscode/keybindings.nix);
+  profiles.default = {
+    enableUpdateCheck = enableUpdateCheck;
+    extensions =
+      if extensions == [] then
+        (import ./vscx.nix { inherit config pkgs; } {})
+      else extensions;
+    keybindings = keybindings
+      ++ (import ../apps/vscode/keybindings.nix);
+    userSettings =
+      (import ../apps/vscode/settings.nix { inherit lib pkgs; })
+      // user // settings;
+  };
   package = package;
-  userSettings =
-    (import ../apps/vscode/settings.nix { inherit lib pkgs; })
-    // user // settings;
 }
