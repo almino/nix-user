@@ -1,6 +1,11 @@
 {
   "chat.mcp.access" = "all";
-  "chat.mcp.discovery.enabled" = true;
+  "chat.mcp.discovery.enabled" = {
+    claude-desktop = true;
+    windsurf = true;
+    cursor-global = true;
+    cursor-workspace = true;
+  };
   "chat.mcp.gallery.enabled" = true;
   "explorer.confirmDelete" = false;
   # "remote.SSH.configFile" = "\${userHome}/.ssh/config";
