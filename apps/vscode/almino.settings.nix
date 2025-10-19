@@ -1,4 +1,6 @@
 {
+  "chat.mcp.access" = "all";
+  "chat.mcp.discovery.enabled" = true;
   "explorer.confirmDelete" = false;
   # "remote.SSH.configFile" = "\${userHome}/.ssh/config";
   "remote.SSH.configFile" = ".ssh/config";
