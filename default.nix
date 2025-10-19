@@ -7,6 +7,7 @@
     eza
     graphicsmagick-imagemagick-compat # convert file.jpg -quality 50% file.small.jpg
     poppler_utils
+    uget # gerenciador de downloads
   ];
 
   imports = [ ./base.nix ./typography.nix ];
