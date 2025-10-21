@@ -17,16 +17,16 @@
     "electron-33.4.11" # feishin
   ];
 
-  programs.firefox = {
-    enable = true;
-    nativeMessagingHosts = {
-      packages = with pkgs.unstable; [
-        firefoxpwa
-        uget-integrator
-      ];
-      ugetIntegrator = true;
-    };
-  };
+  # programs.firefox = {
+  #   enable = true;
+  #   nativeMessagingHosts = {
+  #     packages = with pkgs.unstable; [
+  #       firefoxpwa
+  #       uget-integrator
+  #     ];
+  #     ugetIntegrator = true;
+  #   };
+  # };
 
   # https://nixos.org/manual/nixos/stable/options#opt-system.activationScripts
   system.activationScripts.flatpakApps =
