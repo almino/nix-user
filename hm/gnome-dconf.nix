@@ -230,11 +230,11 @@ with lib.hm.gvariant;
       send-notification-on-copy = false;
     };
 
-    "org/gnome/shell/extensions/space-bar/behavior" = lib.mkDefault {
+    /* "org/gnome/shell/extensions/space-bar/behavior" = lib.mkDefault {
       position = "right";
       show-empty-workspaces = false;
       smart-workspace-names = true;
-    };
+    }; */
 
     # "org/gnome/shell/extensions/space-bar/state" = {
     #   workspace-names-map = lib.mkDefault ''

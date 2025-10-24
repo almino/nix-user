@@ -36,7 +36,7 @@ in
         gnomeExtensions.advanced-alttab-window-switcher.extensionUuid
         gnomeExtensions.pano.extensionUuid
         gnomeExtensions.pop-shell.extensionUuid
-        gnomeExtensions.space-bar.extensionUuid
+        # gnomeExtensions.space-bar.extensionUuid
         gnomeExtensions.tailscale-qs.extensionUuid
         gnomeExtensions.vitals.extensionUuid
         gnomeExtensions.vscode-search-provider.extensionUuid
@@ -55,7 +55,7 @@ in
       ];
     };
 
-    "org/gnome/shell/extensions/space-bar/state" = {
+    /* "org/gnome/shell/extensions/space-bar/state" = {
       workspace-names-map = lib.mkDefault ''
         {
           "code-url-handler":["Code"],
@@ -71,7 +71,7 @@ in
           "Zotero":["Read"]
         }
       '';
-    };
+    }; */
   };
 
   home.file = {
