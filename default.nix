@@ -60,6 +60,7 @@
       obsidian
       pandoc
       sigil
+      temurin-jre-bin-17
       zotero
     ];
   };
