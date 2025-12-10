@@ -13,5 +13,8 @@
 
   users.users.almino = {
     isNormalUser = lib.mkDefault true;
+    packages = with pkgs; [
+      uv # MCP NixOS no VS Code
+    ];
   };
 }
