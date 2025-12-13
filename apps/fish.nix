@@ -41,6 +41,7 @@
       ls = lib.mkDefault "eza -lAgh";
       nboot = lib.mkDefault "${gc}; and ${rebuild} boot ${noBuildOutput} ${barWithLogs}; and ${gc}; and ${unlink}";
       nbootup = lib.mkDefault "${gc}; and ${rebuild} boot ${noBuildOutput} ${up} ${barWithLogs}; and ${gc}; and ${unlink}";
+      nix-config = lib.mkDefault "tmux new -A -s nixos -c (dirname (readlink --canonicalize --no-newline /etc/nixos/configuration.nix))";
       noff = lib.mkDefault "${rebuild} test ${noBuildOutput} ${barWithLogs} --option binary-caches \"\" --option substitute false; and ${unlink}";
       nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${gc}; and ${restart}; and ${unlink}";
       nswitch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
