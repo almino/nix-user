@@ -4,9 +4,10 @@ with pkgs.vscode-extensions; [
   aaron-bond.better-comments
   alexdima.copy-relative-path
   arrterian.nix-env-selector
+  b4dm4n.vscode-nixpkgs-fmt
   bierner.docs-view
   bierner.emojisense
-  bierner.github-markdown-preview
+  # bierner.github-markdown-preview
   bierner.markdown-checkbox
   bierner.markdown-emoji
   bmalehorn.vscode-fish

@@ -8,8 +8,8 @@ with pkgs.vscode-extensions; [
   bmewburn.vscode-intelephense-client
   bradlc.vscode-tailwindcss
   christian-kohler.npm-intellisense
-  devsense.composer-php-vscode
-  devsense.phptools-vscode
+  # devsense.composer-php-vscode # não existe na 25.11
+  # devsense.phptools-vscode # não existe na 25.11
   firefox-devtools.vscode-firefox-debug
   github.copilot
   github.copilot-chat

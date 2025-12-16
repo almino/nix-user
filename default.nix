@@ -6,7 +6,7 @@
   environment.systemPackages = with pkgs; [
     eza
     graphicsmagick-imagemagick-compat # convert file.jpg -quality 50% file.small.jpg
-    poppler_utils
+    poppler-utils
     uget # gerenciador de downloads
     uget-integrator
   ];
