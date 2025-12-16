@@ -20,7 +20,6 @@ defaultHomeManager "almino" {
   imports = [
     ../apps/direnv.hm.nix
     ../apps/git.hm.nix
-    ../apps/pwa.hm.nix
     ../apps/telegram-981.hm.nix
     ../apps/zoxide.hm.nix
   ];

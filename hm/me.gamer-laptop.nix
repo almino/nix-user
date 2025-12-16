@@ -91,6 +91,7 @@ in
 
   imports = [
     ../../hm/proxy.dconf.hm.nix
+    ../apps/pwa.hm.nix
     ./gnome-dconf.nix
     ./me.nix
   ];
