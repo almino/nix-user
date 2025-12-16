@@ -2,51 +2,72 @@
 
 {
   programs.firefoxpwa = {
-    enable = true;
+    enable = lib.mkDefault true;
     profiles = {
-      "01KCM2XGT9DEE5QPP5BYN380MN" = {
-        name = "UFC Sobral";
+      "01KCMAMAN993BCZWC3PB24GJVX" = {
+        name = "Pessoal";
         # settings = lib.mkForce ../../options/firefox.nix;
         sites = {
-          "01KCM32JQ1B41SY3CVDJ098Q5J" = {
+          # Cronograma Enfermagem
+          "01KCMB3PWS3S0QKYX50A9KT4TH" =
+            let
+              name = "Cronograma Enfermagem";
+              url = "https://docs.google.com/spreadsheets/d/1a42v1PUMNFM70pzBs--i0P2VLU87NXbKiWLeXjAvY0Q";
+              icon = "https://ssl.gstatic.com/docs/spreadsheets/spreadsheets_2023q4.ico";
+            in
+            {
+              desktopEntry = {
+                enable = true;
+                icon = pkgs.fetchurl {
+                  url = icon;
+                  sha256 = "203897dc099c4c1ff2d900f82c5384a0348ec31b83b256645d1a50931bb25961";
+                };
+              };
+              manifestUrl = "file://" + (pkgs.writeText "polare.webmanifest" ''
+                {
+                  "name": "${name}",
+                  "short_name": "Cronograma",
+                  "start_url": "${url}",
+                  "display": "standalone",
+                  "background_color": "#eef2f4",
+                  "description": "Meu cronograma de aulas do curso de Enfermagem da UVA",
+                  "icons": [
+                    {
+                      "src": "${icon}",
+                      "sizes": "512x512",
+                      "type": "image/svg+xml"
+                    }
+                  ]
+                }
+              '');
+              name = name;
+              url = url;
+            };
+          # Proton Mail
+          "01KCMAXVZXF9TFJWAN42B96G99" = {
             desktopEntry = {
               enable = true;
               icon = pkgs.fetchurl {
-                url = "https://glpi.sobral.ufc.br/icon-512x512.png";
-                sha256 = "cd466d50a656f1b5e5113d1f2c7e55b55126c5ff1274bca249817bc3c86157ce";
+                url = "https://mail.proton.me/assets/android-chrome-maskable-512x512.png";
+                sha256 = "d91d5d386ee9eca56cc8951e9a490ef5a210effe31b84eafd44f8dfd7713d0e8";
               };
             };
-            manifestUrl = "https://glpi.sobral.ufc.br/manifest.webmanifest";
-            name = "GLPI";
-            url = "https://glpi.sobral.ufc.br/";
+            manifestUrl = "https://mail.proton.me/assets/manifest.webmanifest";
+            name = "Proton Mail";
+            url = "https://mail.proton.me/";
           };
-          "01KCM7CT2Q9ASW8TJ0CEQX88YM" = {
+          # WhatsApp Web
+          "01KCMAPGZ1K69GVPJ6VQR7144Q" = {
             desktopEntry = {
               enable = true;
               icon = pkgs.fetchurl {
-                url = "https://polare.ufc.br/polare/img/favicon-polare.svg";
-                sha256 = "4527cfdc472cb6b8ccc9de6288ccf977fc37a70b094469b445344c455f43e0fa";
+                url = "https://static.whatsapp.net/rsrc.php/yp/r/iBj9rlryvZv.svg";
+                sha256 = "4263557644394305484e870c67c1e57f6e8fe79f4e76b0893ba7b33e830a51e2";
               };
             };
-            manifestUrl = "file://" + (pkgs.writeText "polare.webmanifest" ''
-              {
-                "name": "Polare UFC",
-                "short_name": "Polare",
-                "start_url": "https://polare.ufc.br/",
-                "display": "standalone",
-                "background_color": "#eef2f4",
-                "description": "Sistema Eletrônico do Programa de Gestão de Trabalho",
-                "icons": [
-                  {
-                    "src": "https://polare.ufc.br/polare/img/favicon-polare.svg",
-                    "sizes": "512x512",
-                    "type": "image/svg+xml"
-                  }
-                ]
-              }
-            '');
-            name = "Polare";
-            url = "https://polare.ufc.br/";
+            manifestUrl = "https://web.whatsapp.com/data/manifest.json";
+            name = "WhatsApp Web";
+            url = "https://web.whatsapp.com/";
           };
         };
       };
