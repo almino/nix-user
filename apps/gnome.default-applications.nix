@@ -17,7 +17,7 @@
           "com.google.Chrome.desktop"
         ];
         codeOrBrowser = [ vsCode ] ++ browsers;
-        pdf = [ "org.gnome.Evince.desktop" "draw.desktop" ];
+        pdf = [ "org.gnome.Papers.desktop" "draw.desktop" ];
         staticImage = [
           "org.gnome.Loupe.desktop"
           "com.belmoussaoui.Obfuscate.desktop"
@@ -38,6 +38,11 @@
         # ~/.nix-profile/share/applications/mimeinfo.cache
         # /etc/profiles/per-user/almino/share/applications/mimeinfo.cache
       {
+        "inode/directory" = [
+          "org.gnome.Nautilus.desktop"
+          vsCode
+          "org.gnome.baobab.desktop"
+        ];
         "application/pdf" = lib.mkDefault pdf;
 
         "x-scheme-handler/chrome" = lib.mkDefault "com.google.Chrome.desktop";
