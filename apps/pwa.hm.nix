@@ -8,6 +8,39 @@
         name = "Pessoal";
         # settings = lib.mkForce ../../options/firefox.nix;
         sites = {
+          # ChatGPT
+          "01KCPW2P1PVRDZF94QJJ727FFP" =
+            let
+              name = "ChatGPT";
+              url = "https://chatgpt.com/";
+              icon = ./icons/chatgpt.png;
+            in
+            {
+              desktopEntry = {
+                enable = true;
+                icon = icon;
+              };
+              manifestUrl = "file://" + (pkgs.writeText "polare.webmanifest" ''
+                {
+                  "name": "${name}",
+                  "short_name": "${name}",
+                  "start_url": "${url}",
+                  "display": "standalone",
+                  "background_color": "#212121",
+                  "description": "O ChatGPT é seu assistente de IA para uso diário. Converse com a IA mais avançada para explorar ideias, resolver problemas e aprender mais rápido.",
+                  "icons": [
+                    {
+                      "src": "file://${icon}",
+                      "sizes": "512x512",
+                      "type": "image/svg+xml"
+                    }
+                  ]
+                }
+              '');
+              name = name;
+              url = url;
+            };
+
           # Cronograma Enfermagem
           "01KCMB3PWS3S0QKYX50A9KT4TH" =
             let
