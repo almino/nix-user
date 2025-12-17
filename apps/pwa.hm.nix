@@ -56,6 +56,19 @@
             name = "Proton Mail";
             url = "https://mail.proton.me/";
           };
+          # Phanpy Fediverso
+          "01KCP3DMWYC0GE8A5CJ54EFGWB" = {
+            desktopEntry = {
+              enable = true;
+              icon = pkgs.fetchurl {
+                url = "https://phanpy.bolha.one/logo-512.png";
+                sha256 = "8e6b20da63fc6fbf5bdb66b2a8da1c9a11f52b1ca4a89e228dffb758dda747f4";
+              };
+            };
+            manifestUrl = "https://phanpy.bolha.one/manifest.webmanifest";
+            name = "Phanpy Fediverso";
+            url = "https://phanpy.bolha.one/";
+          };
           # WhatsApp Web
           "01KCMAPGZ1K69GVPJ6VQR7144Q" = {
             desktopEntry = {
