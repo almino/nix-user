@@ -18,10 +18,7 @@
             {
               desktopEntry = {
                 enable = true;
-                icon = pkgs.fetchurl {
-                  url = icon;
-                  sha256 = "203897dc099c4c1ff2d900f82c5384a0348ec31b83b256645d1a50931bb25961";
-                };
+                icon = ./icons/sheet.png;
               };
               manifestUrl = "file://" + (pkgs.writeText "polare.webmanifest" ''
                 {
@@ -47,10 +44,7 @@
           "01KCMAXVZXF9TFJWAN42B96G99" = {
             desktopEntry = {
               enable = true;
-              icon = pkgs.fetchurl {
-                url = "https://mail.proton.me/assets/android-chrome-maskable-512x512.png";
-                sha256 = "d91d5d386ee9eca56cc8951e9a490ef5a210effe31b84eafd44f8dfd7713d0e8";
-              };
+              icon = ./icons/protonmail.svg.png;
             };
             manifestUrl = "https://mail.proton.me/assets/manifest.webmanifest";
             name = "Proton Mail";
@@ -66,7 +60,7 @@
               };
             };
             manifestUrl = "https://phanpy.bolha.one/manifest.webmanifest";
-            name = "Phanpy Fediverso";
+            name = "Phanpy";
             url = "https://phanpy.bolha.one/";
           };
           # WhatsApp Web
