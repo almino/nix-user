@@ -6,6 +6,10 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = with lib; {
+    "desktop/calendar" = {
+      show-weekdate = true;
+    };
+
     "org/gnome/Characters" = {
       recent-characters = [ "×" "–" "—" "…" "☭" ];
     };
