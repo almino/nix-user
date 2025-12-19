@@ -8,6 +8,7 @@
         name = "UFC Sobral";
         # settings = lib.mkForce ../../options/firefox.nix;
         sites = {
+          # GLPI
           "01KCM32JQ1B41SY3CVDJ098Q5J" = {
             desktopEntry = {
               enable = true;
@@ -20,6 +21,7 @@
             name = "GLPI";
             url = "https://glpi.sobral.ufc.br/";
           };
+          # Polare UFC
           "01KCM7CT2Q9ASW8TJ0CEQX88YM" = {
             desktopEntry = {
               enable = true;
