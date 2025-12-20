@@ -75,7 +75,19 @@
       upgit = lib.mkDefault gitUp;
     };
 
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+    presets = [
+      "plain-text-symbols"
+      "no-runtime-versions"
+      # "tokyo-night"
+      "gruvbox-rainbow"
+      # "catppuccin-powerline"
+    ];
+    # settings = {
+    #   palette = "catppuccin";
+    # };
+  };
 
   # Somente meu usuário
   users.users.almino.packages = with pkgs; [
@@ -88,5 +100,6 @@
     fishPlugins.puffer # .. !! !$
     fzf
     grc
+    starship
   ];
 }

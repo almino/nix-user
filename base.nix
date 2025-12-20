@@ -19,6 +19,11 @@
     ./apps/tmux.nix
   ];
 
+  programs.bat = {
+    enable = true;
+    settings.theme = "Solarized (dark)";
+  };
+
   users.users.almino = {
     description = "Almino";
     extraGroups = [ "networkmanager" "wheel" ];
