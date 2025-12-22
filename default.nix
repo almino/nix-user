@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     eza
     graphicsmagick-imagemagick-compat # convert file.jpg -quality 50% file.small.jpg
+    meld
     poppler-utils
     uget # gerenciador de downloads
     uget-integrator
@@ -14,7 +15,7 @@
   imports = [ ./base.nix ./typography.nix ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-33.4.11" # feishin
+    "electron-36.9.5" # feishin
   ];
 
   # programs.firefox = {
