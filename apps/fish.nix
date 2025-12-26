@@ -5,7 +5,7 @@
   programs.fish = {
     enable = true;
     loginShellInit = ''
-      set -xg BAT_THEME "Solarized ($term_background)"
+      set -xg BAT_THEME "Solarized (dark)"
     '';
     shellAbbrs =
       let
