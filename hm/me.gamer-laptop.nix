@@ -34,7 +34,7 @@ in
         # gnomeExtensions.expandable-notifications.extensionUuid
         # gnomeExtensions.nextcloud-folder.extensionUuid
         gnomeExtensions.advanced-alttab-window-switcher.extensionUuid
-        gnomeExtensions.pano.extensionUuid
+        # gnomeExtensions.pano.extensionUuid
         gnomeExtensions.pop-shell.extensionUuid
         # gnomeExtensions.space-bar.extensionUuid
         gnomeExtensions.tailscale-qs.extensionUuid
@@ -100,6 +100,12 @@ in
   programs.bun = {
     enable = true;
     enableGitIntegration = true;
+  };
+
+  programs.pyenv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.vscode = lib.mkForce (vsCode {

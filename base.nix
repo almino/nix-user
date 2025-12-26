@@ -17,11 +17,24 @@
     ./apps/direnv.nix
     ./apps/fish.nix
     ./apps/tmux.nix
+    ./apps/zoxide.nix
   ];
 
   programs.bat = {
     enable = true;
-    settings.theme = "Solarized (dark)";
+    # settings = {
+    #   theme = "solarized";
+    # };
+  };
+
+  programs.lazygit = {
+    enable = true;
+  };
+
+  programs.nix-index = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 
   users.users.almino = {

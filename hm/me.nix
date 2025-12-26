@@ -21,7 +21,6 @@ defaultHomeManager "almino" {
     ../apps/direnv.hm.nix
     ../apps/git.hm.nix
     ../apps/telegram-981.hm.nix
-    ../apps/zoxide.hm.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -91,5 +90,29 @@ defaultHomeManager "almino" {
     # BROWSER = "${lib.getExe pkgs.flatpak}  run --branch=stable --arch=x86_64 --command=waterfox --file-forwarding net.waterfox.waterfox";
   };
 
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    tmux.enableShellIntegration = true;
+  };
+
   programs.gh = import ../apps/gh.nix;
+
+  programs.intelli-shell = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+  };
+
+  programs.lazygit = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    tmuxp.enable = true;
+  };
 }
