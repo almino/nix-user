@@ -18,5 +18,7 @@
       # regex
       virtualenv
     ]))
+    rustup
+    uv
   ];
 }
