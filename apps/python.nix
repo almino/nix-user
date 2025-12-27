@@ -16,7 +16,9 @@
       regex
       werkzeug
     ]))
+    ruff
     rustup
+    ty
     uv
   ];
 }
