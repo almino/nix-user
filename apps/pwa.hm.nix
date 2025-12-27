@@ -20,7 +20,7 @@
                 enable = true;
                 icon = icon;
               };
-              manifestUrl = "file://" + (pkgs.writeText "polare.webmanifest" ''
+              manifestUrl = "file://" + (pkgs.writeText "chatgpt.webmanifest" ''
                 {
                   "name": "${name}",
                   "short_name": "${name}",
@@ -32,7 +32,7 @@
                     {
                       "src": "file://${icon}",
                       "sizes": "512x512",
-                      "type": "image/svg+xml"
+                      "type": "image/png"
                     }
                   ]
                 }
@@ -53,7 +53,7 @@
                 enable = true;
                 icon = ./icons/sheet.png;
               };
-              manifestUrl = "file://" + (pkgs.writeText "polare.webmanifest" ''
+              manifestUrl = "file://" + (pkgs.writeText "cronograma-enfermagem.webmanifest" ''
                 {
                   "name": "${name}",
                   "short_name": "Cronograma",
@@ -65,7 +65,39 @@
                     {
                       "src": "${icon}",
                       "sizes": "512x512",
-                      "type": "image/svg+xml"
+                      "type": "image/png"
+                    }
+                  ]
+                }
+              '');
+              name = name;
+              url = url;
+            };
+          # Friendica
+          "01KDGAXPFGQWGJPG1465DJASVV" =
+            let
+              name = "Friendica";
+              url = "https://mini.log.br/";
+              icon = ./icons/friendica.png;
+            in
+            {
+              desktopEntry = {
+                enable = true;
+                icon = icon;
+              };
+              manifestUrl = "file://" + (pkgs.writeText "friendica.webmanifest" ''
+                {
+                  "name": "${name}",
+                  "short_name": "${name}",
+                  "start_url": "${url}",
+                  "display": "standalone",
+                  "background_color": "#89d69a",
+                  "description": "O Friendica é sua rede social descentralizada para conectar com amigos e comunidades.",
+                  "icons": [
+                    {
+                      "src": "file://${icon}",
+                      "sizes": "512x512",
+                      "type": "image/png"
                     }
                   ]
                 }
