@@ -34,7 +34,7 @@ let exec = [
     exec = builtins.toString (
       exec ++ [ "--" "%u" ]
     );
-    icon = ./telegramX.png;
+    icon = ./icons/telegramX.png;
     name = "Telegram X";
     settings = {
       Keywords = builtins.concatStringsSep ";" [
