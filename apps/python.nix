@@ -15,8 +15,6 @@
       python-slugify
       regex
       werkzeug
-      # regex
-      virtualenv
     ]))
     rustup
     uv
