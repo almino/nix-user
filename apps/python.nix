@@ -15,7 +15,7 @@
       python-frontmatter
       python-slugify
       regex
-      ruff
+      # ruff # atrapalha o duncionamento do VS Code
       seaborn
       vl-convert-python
       werkzeug
