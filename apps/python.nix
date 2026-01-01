@@ -3,6 +3,7 @@
 {
   users.users.almino.packages = with pkgs; [
     (python3.withPackages (python-pkgs: with python-pkgs; [
+      altair # visualização de dados
       beautifulsoup4
       black
       # pdf2docx # não funciona
@@ -14,6 +15,9 @@
       python-frontmatter
       python-slugify
       regex
+      ruff
+      seaborn
+      vl-convert-python
       werkzeug
     ]))
     ruff
