@@ -27,7 +27,7 @@ with pkgs.vscode-extensions; [
   jnoortheen.nix-ide
   kamikillerto.vscode-colorize
   mikestead.dotenv
-  mkhl.direnv
+  # mkhl.direnv
   ms-ceintl.vscode-language-pack-pt-br
   ms-vscode-remote.remote-ssh-edit
   ms-vscode-remote.remote-ssh

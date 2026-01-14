@@ -9,14 +9,6 @@
       "6f367f6df419ab346cc09ea5816e5a05564dfeb02a62cee1c4b6d669826b0901";
   }
   {
-    # https://pkief.gallery.vsassets.io/_apis/public/gallery/publisher/vsls-contrib/extension/gistfs/latest/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
-    name = "gistfs";
-    publisher = "vsls-contrib";
-    version = "0.4.1";
-    sha256 =
-      "6ede62cf9e6ee38141896757038498059c5b127722c8e6c4dd61e40fe8700119";
-  }
-  {
     name = "vscode-nginx-conf";
     publisher = "ahmadalli";
     version = "0.3.2";
