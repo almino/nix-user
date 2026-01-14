@@ -92,6 +92,7 @@ in
   "prettier.printWidth" = 50;
   "redhat.telemetry.enabled" = true;
   "remote.SSH.useLocalServer" = false;
+  "security.promptForLocalFileProtocolHandling" = false;
   "sql-formatter.uppercase" = true;
   "terminal.integrated.fontFamily" = lib.mkDefault
     (builtins.concatStringsSep ", " [
