@@ -29,6 +29,7 @@ with pkgs.vscode-extensions; [
   mikestead.dotenv
   # mkhl.direnv
   ms-ceintl.vscode-language-pack-pt-br
+  ms-vscode.remote-explorer
   ms-vscode-remote.remote-ssh-edit
   ms-vscode-remote.remote-ssh
   naumovs.color-highlight
