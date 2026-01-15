@@ -1,8 +1,8 @@
 { lib, pkgs, ... }:
 
 let
-  darkTheme = lib.mkDefault "Cobalt2 Theme Tweaked";
-  lightTheme = lib.mkDefault "Solarized Light";
+  darkTheme = lib.mkDefault "Andromeda Bordered";
+  lightTheme = lib.mkDefault "Gruvbox Light Medium";
 in
 {
   "[angular]"."editor.defaultFormatter" =
@@ -117,9 +117,9 @@ in
   "workbench.colorTheme" = lightTheme;
   # "workbench.colorTheme" = lib.mkDefault "Palenight (Mild Contrast)";
   # "workbench.colorTheme" = lib.mkDefault "Quiet Light";
-  "workbench.iconTheme" = lib.mkDefault "material-icon-theme";
+  "workbench.iconTheme" = lib.mkDefault "bearded-icons";
   # "workbench.iconTheme" = null;
   "workbench.preferredDarkColorTheme" = darkTheme;
-  # "workbench.preferredLightColorTheme" = "Adwaita Light";
-  "workbench.tree.indent" = 12;
+  "workbench.preferredLightColorTheme" = lightTheme;
+  "workbench.tree.indent" = 20;
 }

@@ -24,6 +24,7 @@ with pkgs.vscode-extensions; [
   formulahendry.auto-close-tag
   foxundermoon.shell-format
   intellsmi.comment-translate
+  jdinhlife.gruvbox
   jnoortheen.nix-ide
   kamikillerto.vscode-colorize
   mikestead.dotenv
@@ -34,14 +35,14 @@ with pkgs.vscode-extensions; [
   ms-vscode-remote.remote-ssh
   naumovs.color-highlight
   piousdeer.adwaita-theme
-  pkief.material-icon-theme
-  pkief.material-product-icons
+  # pkief.material-icon-theme # dude freaked out
+  # pkief.material-product-icons # dude freaked out
   redhat.vscode-yaml
   seatonjiang.gitmoji-vscode
   shardulm94.trailing-spaces
   shd101wyy.markdown-preview-enhanced
-  stephlin.vscode-tmux-keybinding
-  tailscale.vscode-tailscale
+  # stephlin.vscode-tmux-keybinding
+  # tailscale.vscode-tailscale
   tyriar.sort-lines
   usernamehw.errorlens
   vincaslt.highlight-matching-tag
