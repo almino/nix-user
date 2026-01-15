@@ -1,4 +1,4 @@
-# rm -Rf ~/.vscode/extensions; and hms
+# rm -Rf ~/.vscode/extensions; and ntest
 # /nix-config/base/vscode/update-extensions.sh > /nix-config/base/vscode/all_extensions.$(now).nix
 /* nix store prefetch-file marketplace.visualstudio.com/_apis/public/gallery/publishers/P_U_B_L_I_S_H_E_R/vsextensions/E_X_T_E_N_S_I_O_N/V_E_R_S_I_O_N/vspackage */
 [
