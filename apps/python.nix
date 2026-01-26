@@ -6,9 +6,11 @@
       altair # visualização de dados
       beautifulsoup4
       black
+      fastapi
       # pdf2docx # não funciona
       pip
       pyarrow
+      pydantic
       pylance
       pypandoc
       pypdf
@@ -17,6 +19,9 @@
       regex
       # ruff # atrapalha o duncionamento do VS Code
       seaborn
+      sqlmodel
+      typer
+      uvicorn
       vl-convert-python
       werkzeug
     ]))
