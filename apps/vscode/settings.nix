@@ -65,6 +65,11 @@ in
   "editor.stickyScroll.enabled" = true;
   "editor.tabCompletion" = "on";
   "editor.tabSize" = lib.mkDefault 2;
+  "explorer.fileNesting.enabled" = true;
+  "explorer.fileNesting.expand" = false;
+  "explorer.fileNesting.patterns" = {
+    "shell.nix" = ".envrc";
+  };
   "files.associations".".tarignore" = "ignore";
   "files.exclude" = {
     "**/.direnv" = true;
