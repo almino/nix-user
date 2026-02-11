@@ -67,7 +67,7 @@ in
   "editor.tabSize" = lib.mkDefault 2;
   "explorer.fileNesting.enabled" = true;
   "explorer.fileNesting.expand" = false;
-  "explorer.fileNesting.patterns" = {
+  "explorer.fileNesting.patterns" = (import ./file-nesting.nix) // {
     "shell.nix" = ".envrc";
   };
   "files.associations".".tarignore" = "ignore";
@@ -82,6 +82,7 @@ in
   "git.openRepositoryInParentFolders" = "never";
   "git.showPushSuccessNotification" = true;
   "git.suggestSmartCommit" = false;
+  "github.copilot.nextEditSuggestions.enabled" = true;
   "gitlens.advanced.messages"
   ."suppressCreatePullRequestPrompt" = true;
   "gitlens.defaultDateFormat" =
