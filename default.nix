@@ -48,6 +48,7 @@
     # Os aplicativos abaixo estão disponíveis
     # apenas para este usuário
     packages = with pkgs; [
+      calibre
       dino
       drawio
       feishin
@@ -58,6 +59,7 @@
       minder
       nextcloud-client
       niv
+      ocrmypdf
       obsidian
       pandoc
       sigil
