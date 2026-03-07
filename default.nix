@@ -5,11 +5,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     eza
+    gajim
     graphicsmagick-imagemagick-compat # convert file.jpg -quality 50% file.small.jpg
     meld
     poppler-utils
     uget # gerenciador de downloads
     uget-integrator
+    vivaldi
   ];
 
   imports = [ ./base.nix ./typography.nix ];

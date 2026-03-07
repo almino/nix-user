@@ -79,9 +79,13 @@ in
     # /run/current-system/sw/share/applications/mimeinfo.cache
     # ~/.nix-profile/share/applications/mimeinfo.cache
     # /etc/profiles/per-user/almino/share/applications/mimeinfo.cache
-    dino = {
+    /* dino = {
       source = "${pkgs.dino}/share/applications/im.dino.Dino.desktop";
       target = ".config/autostart/dino.desktop";
+    }; */
+    gajim = {
+      source = "${pkgs.gajim}/share/applications/org.gajim.Gajim.desktop";
+      target = ".config/autostart/gajim.desktop";
     };
     obsidian = {
       source = "${pkgs.obsidian}/share/applications/obsidian.desktop";
