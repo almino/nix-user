@@ -5,10 +5,12 @@
 {
   programs.git = {
     enable = true;
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
+      user = {
+        email = lib.mkDefault "almino.melo@gmail.com";
+        name = lib.mkDefault "Almino Melo";
+      };
     };
-    userEmail = lib.mkDefault "almino.melo@gmail.com";
-    userName = "Almino Melo";
   };
 }
