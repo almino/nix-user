@@ -75,7 +75,7 @@
             };
           # Friendica
           "01KDGAXPFGQWGJPG1465DJASVV" =
-            let
+            /* let
               name = "Friendica";
               url = "https://mini.log.br/";
               icon = ./icons/friendica.png;
@@ -104,7 +104,7 @@
               '');
               name = name;
               url = url;
-            };
+            }; */
           # Proton Mail
           "01KCMAXVZXF9TFJWAN42B96G99" = {
             desktopEntry = {
