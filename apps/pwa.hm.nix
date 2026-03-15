@@ -73,9 +73,10 @@
               name = name;
               url = url;
             };
+          /*
           # Friendica
           "01KDGAXPFGQWGJPG1465DJASVV" =
-            /* let
+            let
               name = "Friendica";
               url = "https://mini.log.br/";
               icon = ./icons/friendica.png;
