@@ -35,4 +35,9 @@ extra // {
     # Necessário para não mostrar o erro de conflito
     package = lib.mkDefault pkgs.unstable.vscode;
   };
+
+  services.psd = {
+    browsers = [ "firefox" "google-chrome" "vivaldi" ];
+    enable = true;
+  };
 }
