@@ -9,7 +9,7 @@
     '';
     shellAbbrs =
       let
-        backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz (/run/current-system/sw/bin/ls -A $PWD)";
+        backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz --exclude-vcs-ignores --exclude='.git' (/run/current-system/sw/bin/ls -A $PWD)";
         barWithLogs = "--log-format bar-with-logs";
         gc = "sudo nix-collect-garbage";
         gitPull = "git pull --recurse-submodules --autostash";
@@ -47,13 +47,12 @@
         nbootup = lib.mkDefault "${gc}; and ${rebuild} boot ${noBuildOutput} ${up} ${barWithLogs}; and ${gc}; and ${unlink}";
         nix-config = lib.mkDefault "tmux new -A -s nixos -c (dirname (readlink --canonicalize --no-newline /etc/nixos/configuration.nix))";
         noff = lib.mkDefault "${rebuild} test ${noBuildOutput} ${barWithLogs} --option binary-caches \"\" --option substitute false; and ${unlink}";
+        now = lib.mkDefault now;
         nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${gc}; and ${restart}; and ${unlink}";
         nswitch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
         ntest = lib.mkDefault "${rebuild} test ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
         ntup = lib.mkDefault tup;
         pcp = lib.mkDefault "rsync -ah --progress";
-        # pip = lib.mkDefault pip;
-        # pip3 = lib.mkDefault pip;
         reboot = lib.mkDefault restart;
         restart = lib.mkDefault restart;
         rmf = lib.mkDefault "rm --force --recursive";
@@ -75,6 +74,7 @@
         temux = tmux;
         termux = tmux;
         tup = lib.mkDefault tup;
+        untarxz = lib.mkDefault "tar --checkpoint=1500 --extract --xz --file";
         up = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${barWithLogs} ${up}; and ${unlink}";
         upgit = lib.mkDefault gitUp;
       };
