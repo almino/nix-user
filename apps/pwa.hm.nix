@@ -8,6 +8,24 @@
         name = "Pessoal";
         # settings = lib.mkForce ../../options/firefox.nix;
         sites = {
+          # Claude
+          "01KK48VQDP9GMSXYCAK12BE5PT" =
+            let
+              name = "Claude";
+              url = "https://claude.ai/";
+              icon = ./icons/claude.png;
+            in
+            {
+              desktopEntry = {
+                enable = true;
+                icon = icon;
+              };
+              manifestUrl = "https://claude.ai/manifest.json";
+              name = name;
+              url = url;
+            };
+
+
           # ChatGPT
           "01KCPW2P1PVRDZF94QJJ727FFP" =
             let
@@ -75,7 +93,7 @@
             };
           /*
           # Friendica
-          "01KDGAXPFGQWGJPG1465DJASVV" =
+          /* "01KDGAXPFGQWGJPG1465DJASVV" =
             let
               name = "Friendica";
               url = "https://mini.log.br/";
