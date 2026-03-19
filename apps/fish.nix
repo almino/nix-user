@@ -9,7 +9,7 @@
     '';
     shellAbbrs =
       let
-        backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz --exclude-vcs-ignores --exclude='.git' (/run/current-system/sw/bin/ls -A $PWD)";
+        backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz --exclude-vcs-ignores --exclude='**/.git/' (/run/current-system/sw/bin/ls -A $PWD)";
         barWithLogs = "--log-format bar-with-logs";
         gc = "sudo nix-collect-garbage";
         gitPull = "git pull --recurse-submodules --autostash";
