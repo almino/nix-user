@@ -33,19 +33,31 @@
   #   };
   # };
 
-  # https://nixos.org/manual/nixos/stable/options#opt-system.activationScripts
-  system.activationScripts.flatpakApps =
-    let
-      flatpak = "/run/current-system/sw/bin/flatpak";
-      install = "${flatpak} install --or-update --assumeyes --noninteractive";
-    in
-    # /var/lib/flatpak/exports/share/applications/
-    builtins.concatStringsSep " &&" [
-      "${install} flathub re.sonny.Eloquent"
-      # "${install} flathub net.waterfox.waterfox"
-      # "${install} flathub app.zen_browser.zen"
-      "${install} flathub net.codelogistics.webapps"
-    ];
+  systemd.user.timers.flatpak-apps = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "daily";
+      Persistent = true;
+      Unit = "flatpak-apps.service";
+    };
+  };
+
+  systemd.user.services.flatpak-apps = {
+    description = "Install and update Flatpak apps";
+    serviceConfig = {
+      ExecStart = let
+        flatpak = "${pkgs.flatpak}/bin/flatpak";
+        install = "${flatpak} install --or-update --assumeyes --noninteractive";
+      in
+        builtins.concatStringsSep "\n" [
+          "${install} flathub re.sonny.Eloquent"
+          # "${install} flathub net.waterfox.waterfox"
+          # "${install} flathub app.zen_browser.zen"
+          # "${install} flathub net.codelogistics.webapps"
+        ];
+      Type = "oneshot";
+    };
+  };
 
   users.users.almino = {
     isNormalUser = lib.mkDefault true;
