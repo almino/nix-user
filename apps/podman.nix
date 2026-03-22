@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   # https://wiki.nixos.org/wiki/Podman
@@ -16,6 +16,9 @@
   users.users.almino = {
     extraGroups = [
       "podman"
+    ];
+    packages = with pkgs; [
+      podman-compose
     ];
   };
 }
