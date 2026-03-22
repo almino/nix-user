@@ -50,7 +50,7 @@
         now = lib.mkDefault now;
         nreboot = lib.mkDefault "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${gc}; and ${restart}; and ${unlink}";
         nswitch = lib.mkDefault "${rebuild} switch ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
-        ntest = lib.mkDefault "${rebuild} test ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
+        ntest = lib.mkDefault "${rebuild} test --show-trace ${noBuildOutput} ${noBuildSystem} ${barWithLogs}; and ${unlink}";
         ntup = lib.mkDefault tup;
         pcp = lib.mkDefault "rsync -ah --progress";
         reboot = lib.mkDefault restart;
