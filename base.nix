@@ -27,12 +27,14 @@
     # };
   };
 
+  programs.command-not-found.enable = true;
+
   programs.lazygit = {
     enable = true;
   };
 
   programs.nix-index = {
-    enable = true;
+    enable = false;
     enableBashIntegration = true;
     enableFishIntegration = true;
   };
