@@ -7,8 +7,10 @@
     eza
     gajim
     graphicsmagick-imagemagick-compat # convert file.jpg -quality 50% file.small.jpg
+    hacompanion
     meld
     poppler-utils
+    shfmt
     uget # gerenciador de downloads
     uget-integrator
     vivaldi
@@ -51,7 +53,6 @@
     # apenas para este usuário
     packages = with pkgs; [
       calibre
-      dino
       drawio
       feishin
       firefoxpwa
