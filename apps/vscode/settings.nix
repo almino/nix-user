@@ -99,6 +99,7 @@ in
   "redhat.telemetry.enabled" = true;
   "remote.SSH.useLocalServer" = false;
   "security.promptForLocalFileProtocolHandling" = false;
+  "shfmt.executablePath" = "${pkgs.shfmt}/bin/shfmt";
   "sql-formatter.uppercase" = true;
   "terminal.integrated.fontFamily" = lib.mkDefault
     (builtins.concatStringsSep ", " [
