@@ -9,7 +9,20 @@
     '';
     shellAbbrs =
       let
-        backup-dir = "${tarxz} --file ../(${now}).(basename $PWD).tar.xz --exclude-vcs-ignores --exclude='**/.git/' (/run/current-system/sw/bin/ls -A $PWD)";
+        backup-dir = ''
+          set backup "../$(date +"%Y-%m-%d--%H-%M-%S").$(basename $PWD).tar"; \
+          tar --checkpoint=1500 --create \
+            --file=$backup \
+            --exclude-vcs-ignores \
+            --exclude='.git' \
+            --exclude='.stfolder' \
+            --exclude='.stversions' \
+            --directory=$PWD \
+            --transform 's|^\./||' \
+            .; and \
+          tar --delete --file=$backup '.'; and \
+          xz $backup
+        '';
         barWithLogs = "--log-format bar-with-logs";
         gc = "sudo nix-collect-garbage";
         gitPull = "git pull --recurse-submodules --autostash";
