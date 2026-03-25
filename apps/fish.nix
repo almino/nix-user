@@ -103,9 +103,14 @@
       "gruvbox-rainbow"
       # "catppuccin-powerline"
     ];
-    # settings = {
-    #   palette = "catppuccin";
-    # };
+    settings = {
+      cmd_duration = {
+        /* https://starship.rs/config/#command-duration */
+        disabled = true;
+        min_time = 10000; # 10 seconds
+      };
+      #   palette = "catppuccin";
+    };
   };
 
   # Somente meu usuário
