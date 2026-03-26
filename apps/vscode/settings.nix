@@ -236,11 +236,13 @@ in
     "**/.Trash-*" = true;
   };
   "files.trimTrailingWhitespace" = true;
+  "js/ts.updateImportsOnFileMove.enabled" = "never";
   "git.autofetch" = false;
   "git.closeDiffOnOperation" = true;
   "git.openRepositoryInParentFolders" = "never";
   "git.showPushSuccessNotification" = true;
   "git.suggestSmartCommit" = false;
+  "github.copilot.chat.localeOverride" = "pt-br";
   "github.copilot.nextEditSuggestions.enabled" = true;
   "gitlens.advanced.messages"
   ."suppressCreatePullRequestPrompt" = true;
