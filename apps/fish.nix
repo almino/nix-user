@@ -9,20 +9,12 @@
     '';
     shellAbbrs =
       let
-        backup-dir = ''
-          set backup "../$(date +"%Y-%m-%d--%H-%M-%S").$(basename $PWD).tar"; \
-          tar --checkpoint=1500 --create \
-            --file=$backup \
-            --exclude-vcs-ignores \
-            --exclude='.git' \
-            --exclude='.stfolder' \
-            --exclude='.stversions' \
-            --directory=$PWD \
-            --transform 's|^\./||' \
-            .; and \
-          tar --delete --file=$backup '.'; and \
-          xz $backup
-        '';
+        backup-dir = builtins.concatStringsSep "; and " [
+          "set backup \"../$(date +\"%Y-%m-%d--%H-%M-%S\").$(basename $PWD).tar\""
+          tar
+          "tar --delete --file=$backup '.'"
+          "xz $backup"
+        ];
         barWithLogs = "--log-format bar-with-logs";
         gc = "sudo nix-collect-garbage";
         gitPull = "git pull --recurse-submodules --autostash";
@@ -36,7 +28,17 @@
         rebuild = "sudo nixos-rebuild";
         restart = "sudo reboot";
         screen-backup-dir = "screen sh -c \"${backup-dir}\"";
-        tarxz = "tar --checkpoint=1500 --create --xz";
+        tar = builtins.concatStringsSep " " [
+          "tar --checkpoint=1500 --create"
+          "--file=$backup"
+          "--exclude-vcs-ignores"
+          "--exclude='.git'"
+          "--exclude='.stfolder'"
+          "--exclude='.stversions'"
+          "--directory=$PWD "
+          "--transform 's|^\\./||'"
+          "."
+        ];
         tmux = "tmux";
         tup = "${rebuild} test ${noBuildOutput} ${noBuildSystem} ${barWithLogs} ${up}; and ${unlink}";
         up = "--upgrade-all";
@@ -70,11 +72,11 @@
         restart = lib.mkDefault restart;
         rmf = lib.mkDefault "rm --force --recursive";
         rpull = "git pull --recurse-submodules";
-        rup = lib.mkDefault (builtins.toString [
-          "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs} ${up};"
-          "and ${gc};"
-          "and ${restart}"
+        rup = lib.mkDefault (builtins.concatStringsSep "; " [
+          "${rebuild} boot ${noBuildOutput} ${noBuildSystem} ${barWithLogs} ${up}"
+          "and ${gc}"
           "and ${unlink}"
+          "and ${restart}"
         ]);
         sbackup-dir = lib.mkDefault screen-backup-dir;
         sbd = lib.mkDefault screen-backup-dir;
