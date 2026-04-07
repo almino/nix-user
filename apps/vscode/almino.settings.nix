@@ -13,7 +13,8 @@
   "remote.SSH.remotePlatform" = {
     artemis = "linux";
     demeter = "linux";
-    servarr = "linux";
+    nixos-dev = "linux";
     qemu = "linux";
+    servarr = "linux";
   };
 }
