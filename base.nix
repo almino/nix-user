@@ -4,9 +4,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    eza
     git
+    htop
     nil
     nixpkgs-fmt
+    plakativ # *plakativ-gui* moldes grandes em páginas a4
   ];
 
   # home-manager.sharedModules = [{
