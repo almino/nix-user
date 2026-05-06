@@ -21,6 +21,7 @@
     ./apps/fish.nix
     ./apps/tmux.nix
     ./apps/zoxide.nix
+    ./copyfail.nix
   ];
 
   programs.bat = {
